@@ -1,0 +1,16 @@
+.notfind {
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+}
+
+.notfind p {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.notfind img {
+  width: 100%;
+  margin-top: -3rem;
+}

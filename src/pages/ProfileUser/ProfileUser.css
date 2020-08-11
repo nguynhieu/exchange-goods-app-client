@@ -1,0 +1,168 @@
+.profile {
+  width: 100%;
+}
+
+.profile-header {
+  background-repeat: repeat;
+  background-size: 300px;
+  box-shadow: 0 2px 5px #ddd;
+  padding-bottom: 0.25rem;
+}
+
+.profile-header-avatar {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.profile-header-avatar img {
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 0 10px #333;
+}
+
+.profile-header-username {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+.profile-body {
+  position: relative;
+}
+
+.profile-body nav {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.profile-body nav a {
+  box-shadow: 0 0 10px #ddd;
+  margin: 0.5rem;
+  background: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  position: relative;
+}
+
+.profile-body .post {
+  margin: 1rem auto;
+}
+
+.profile-timeline-content {
+  text-align: center;
+}
+
+.profile-body nav a {
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-body nav a.active {
+  color: var(--hover-color);
+}
+
+.profile-body nav a::after {
+  content: "";
+  position: absolute;
+  transition: 0.2s;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 3px;
+  background: var(--hover-color);
+}
+
+.profile-body nav a.active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--hover-color);
+}
+
+.profile-body nav a::before {
+  content: "";
+  position: absolute;
+  transition: 0.2s;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 3px;
+  background: var(--hover-color);
+}
+
+.profile-body nav a.active::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--hover-color);
+}
+
+.profile-body nav a:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  transition: 0.2s;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--hover-color);
+}
+
+.profile-body nav a:nth-child(2).active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--hover-color);
+}
+
+.profile-body nav a:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  transition: 0.2s;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--hover-color);
+}
+
+.profile-body nav a:nth-child(2).active::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--hover-color);
+}
+
+.profile-body-about {
+  margin-top: 1rem;
+  font-size: 1rem;
+}

@@ -1,0 +1,133 @@
+.login {
+  min-height: calc(100% - 172px);
+  padding-bottom: 2rem;
+}
+
+.login .login-main {
+  width: 100%;
+  max-width: 320px;
+  margin-top: 1rem;
+}
+
+.login form h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 360px;
+  position: relative;
+  z-index: 1020;
+  margin-top: 1rem;
+}
+
+.login .container {
+  display: flex;
+  justify-content: center;
+}
+
+.login-form input {
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+}
+
+.login img {
+  width: 100%;
+  max-width: 480px;
+  right: 0;
+}
+
+.login-form div {
+  position: relative;
+}
+
+.login-form input {
+  font-size: 0.925rem;
+  display: block;
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+}
+
+.login-form button {
+  outline: none;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  width: 100%;
+  padding: 0.325rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 0.825rem;
+  pointer-events: none;
+}
+
+.login-form button.show-btn {
+  pointer-events: auto;
+  background: #141414;
+}
+
+.login-form button .css-0 {
+  display: flex;
+}
+
+.login .login-welcome {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login .login-welcome img {
+  position: absolute;
+  top: -30%;
+  left: 0;
+  z-index: 999;
+}
+
+.login .login-form .login-error {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  height: 1rem;
+  bottom: -1.5rem;
+  font-size: 0.925rem;
+  color: rgb(197, 25, 25);
+}
+
+.login .login-form .login-error svg {
+  width: 20px;
+  height: 20px;
+  margin-left: 0.5rem;
+}
+
+.login .login-suggest-signup {
+  text-align: center;
+  font-size: 0.925rem;
+  margin-top: 1rem;
+}
+
+.login .login-suggest-signup div {
+  position: relative;
+  display: inline;
+}
+
+.login .login-suggest-signup a {
+  text-decoration: none !important;
+}
+
+.login .login-suggest-signup img {
+  position: absolute;
+  width: 3rem;
+  left: -3rem;
+  top: -1rem;
+}

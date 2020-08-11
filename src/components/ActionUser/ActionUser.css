@@ -1,0 +1,98 @@
+.action-user {
+  display: flex;
+  align-items: center;
+}
+
+.site-action-user {
+  flex: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.site-action-user button {
+  margin-left: 0.5rem;
+}
+
+.ant-btn svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+.site-action-user img {
+  position: relative;
+  top: -5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  transition: 0.2s;
+}
+
+.site-action-user .notification svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+.site-action-user img:hover {
+  border: 2px solid var(--hover-color);
+}
+
+.ant-btn:hover,
+.ant-btn:focus,
+.ant-btn:active {
+  background: transparent !important;
+}
+
+.site-action-user .ant-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.ant-dropdown .ant-dropdown-menu {
+  top: 10px;
+}
+
+.ant-dropdown-menu-item a {
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+  font-size: 1rem;
+}
+
+.ant-dropdown-menu-item svg {
+  width: 20px;
+  height: 20px;
+  fill: #000;
+  margin-right: 0.5rem;
+}
+
+.site-action-user li {
+  list-style: none;
+  margin-left: 1rem;
+}
+
+.site-action-user li a {
+  color: #eeeeee;
+  font-weight: bold;
+  text-decoration: none !important;
+}
+
+.site-action-user li a:hover {
+  color: #00adb5;
+}
+
+@media (max-width: 767.68px) {
+  .site-actions-noti svg {
+    position: relative;
+    top: -2px;
+    fill: #fff;
+    margin-left: 1rem;
+    width: 20px;
+    height: 20px;
+  }
+}

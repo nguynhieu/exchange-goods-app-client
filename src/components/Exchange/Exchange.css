@@ -1,0 +1,22 @@
+.text-right {
+  text-align: right;
+}
+
+.exchange td button {
+  background: var(--hover-color);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 0.25rem;
+}
+
+.exchange td button:nth-child(2) {
+  margin-left: 0.5rem;
+  background: rgb(196, 97, 97);
+}
+
+.ant-modal {
+  max-width: 90% !important;
+}

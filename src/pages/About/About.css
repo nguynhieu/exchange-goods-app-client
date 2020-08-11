@@ -1,0 +1,22 @@
+.about {
+  padding-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.about h3 {
+  margin: 1rem 0 2rem;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.about img {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.about-article {
+  color: #222;
+  text-indent: 20px;
+  margin-bottom: 0.5rem;
+}

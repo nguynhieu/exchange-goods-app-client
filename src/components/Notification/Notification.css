@@ -1,0 +1,60 @@
+.site-action-user .notification svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+.site-actions .notification button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.ant-dropdown {
+  max-width: 300px;
+}
+
+.ant-dropdown-menu-item,
+.ant-dropdown-menu-submenu-title {
+  white-space: normal;
+}
+
+.ant-dropdown-menu-item:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+.ant-dropdown .notification-sender {
+  font-weight: bold;
+  margin-right: 0.4rem;
+}
+
+.ant-dropdown .notification-postId {
+  font-size: 0.925rem;
+  margin-left: 0.25rem;
+  color: var(--hover-color);
+}
+
+.ant-dropdown div {
+  word-break: break-word;
+  line-height: 1.2;
+  font-size: 0.925rem;
+}
+
+.ant-dropdown .show-time {
+  margin-top: 1rem;
+  display: block;
+  font-size: 0.825rem;
+  float: right;
+}
+
+.ant-dropdown-menu-item,
+.ant-dropdown-menu-submenu-title {
+  white-space: normal !important;
+}
+
+@media (max-width: 768px) {
+  .site-action-user .notification svg {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -1,0 +1,132 @@
+.signup-form {
+  width: 100%;
+  /* margin: 0 auto; */
+  max-width: 360px;
+}
+
+.signup .container {
+  display: flex;
+  justify-content: center;
+}
+
+.signup img {
+  width: 100%;
+  max-width: 480px;
+  right: 0;
+}
+
+.signup form {
+  position: relative;
+}
+
+.signup-form {
+  margin-top: 1rem;
+}
+
+.signup-form .signup-field {
+  position: relative;
+}
+
+.signup-form .signup-field svg {
+  width: 20px;
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  height: 20px;
+  display: none;
+}
+
+.signup-form .signup-field svg.show {
+  display: block;
+}
+
+.signup-form p {
+  position: absolute;
+  top: -60%;
+  margin: 0;
+  font-size: 0.825rem;
+  color: rgb(48, 39, 39);
+}
+
+.signup-form p.invalid {
+  color: rgb(179, 19, 19);
+}
+
+.signup-form input {
+  font-size: 0.925rem;
+  display: block;
+  width: 100%;
+  margin: 2rem 0;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.signup-form input.error {
+  border: 1px solid var(--error-color);
+}
+
+.signup-form input:nth-last-child(1) {
+  margin-bottom: 1.5rem;
+}
+
+.signup-form button {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: 0.325rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 0.825rem;
+  pointer-events: none;
+}
+
+.signup-form button .css-0 {
+  display: flex;
+}
+
+.signup-form button.show-btn {
+  pointer-events: auto;
+  background: #141414;
+}
+
+.signup .show-error {
+  font-size: 0.825rem;
+  text-align: center;
+  color: var(--error-color);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -1.5rem;
+  width: 100%;
+}
+
+.signup .signup-suggest-login {
+  text-align: center;
+  font-size: 0.925rem;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+.signup .signup-suggest-login div {
+  position: relative;
+  display: inline;
+}
+.signup .signup-suggest-login a {
+  text-decoration: none !important;
+}
+
+.signup .signup-suggest-login img {
+  position: absolute;
+  width: 3rem;
+  left: -3rem;
+  top: -1rem;
+}

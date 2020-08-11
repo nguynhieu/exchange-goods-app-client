@@ -1,0 +1,140 @@
+.table-wrap {
+  border: 1px solid #ddd;
+}
+
+.manager-header {
+  padding: 1rem 0;
+  border-bottom: 2px solid #ddd;
+}
+
+.manager-header h3 {
+  font-size: 1.5rem;
+  color: var(--hover-color);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 1rem;
+}
+
+.manager-header p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.manager-body {
+  margin-bottom: 2rem;
+}
+
+.manager-back {
+  display: inline-block;
+  margin: 1.5rem 0 2rem;
+  color: #fff !important;
+  background: var(--hover-color);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+}
+
+.manager-body-link {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 3rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.manager-body-cart {
+  width: 100%;
+  min-width: 280px;
+  box-shadow: 0px 5px 10px #999;
+  position: relative;
+  height: 200px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.manager-body-cart img {
+  position: absolute;
+  height: 100%;
+  object-fit: cover;
+}
+
+.manager-cart-content {
+  position: absolute;
+  width: 100%;
+  background: rgba(62, 87, 141, 0.4);
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+}
+
+.manager-cart-content.helper {
+  background: rgba(230, 0, 0, 0.4);
+}
+
+.manager-cart-content-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.manager-cart-blur {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.manager-cart-content p {
+  color: #000;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0.4rem;
+  position: relative;
+}
+
+.request-exchange-item {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.request-exchange-item table {
+  width: 100%;
+  min-width: 998px;
+}
+
+.request-exchange-item button {
+  background: var(--hover-color);
+  padding: 0.25rem 0.5rem;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.825rem;
+  border: none;
+  outline: none;
+  border-radius: 0.25rem;
+  transition: 0.2s;
+}
+
+.request-exchange-item button:nth-child(1):hover {
+  background: #2a8286;
+}
+
+.request-exchange-item button:nth-child(2) {
+  background: rgb(196, 97, 97);
+}
+
+.request-exchange-item button:nth-child(2):hover {
+  background: rgb(222, 97, 97);
+}
+
+@media (max-width: 768px) {
+  .manager-body-link {
+    grid-template-columns: auto;
+    grid-gap: 2rem;
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "React example starter project",
+  "keywords": [
+    "react",
+    "starter"
+  ],
+  "main": "src/index.js",
+  "dependencies": {
+    "antd": "4.5.2",
+    "antd-img-crop": "3.9.0",
+    "axios": "0.19.2",
+    "bootstrap": "4.5.0",
+    "classnames": "2.2.6",
+    "dotenv": "8.2.0",
+    "font-awesome": "4.7.0",
+    "moment": "2.27.0",
+    "moment-timezone": "0.5.31",
+    "react": "16.12.0",
+    "react-custom-scrollbars": "4.2.1",
+    "react-dom": "16.12.0",
+    "react-id-swiper": "4.0.0",
+    "react-infinite-scroll-component": "5.0.5",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "3.0.1",
+    "react-spinners": "0.9.0",
+    "react-toastify": "6.0.8",
+    "reactstrap": "8.5.1",
+    "socket.io-client": "2.3.0",
+    "sweetalert2": "9.15.3",
+    "swiper": "6.0.4",
+    "xmlhttprequest-ssl": "1.6.0"
+  },
+  "devDependencies": {
+    "typescript": "3.8.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

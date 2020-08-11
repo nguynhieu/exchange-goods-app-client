@@ -1,0 +1,132 @@
+.header {
+  background: #141414;
+  position: relative;
+}
+
+.header .input-xs::placeholder {
+  color: #999;
+}
+
+.site-header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: sticky;
+  position: -webkit-sticky;
+  z-index: 1010;
+}
+
+.site-header-inner {
+  height: 100px;
+}
+
+.site-header-inner .site-header-logo {
+  float: left;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  margin-right: 1rem;
+}
+
+.site-header-inner .site-header-logo::after {
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #fff;
+  border-radius: 50%;
+  transform: scale(0.8);
+}
+
+.site-header-inner .site-header-logo img {
+  position: relative;
+  height: 100%;
+  z-index: 1;
+}
+
+.site-header-inner .site-actions {
+  width: auto;
+  margin-left: 116px;
+  align-items: center;
+}
+
+.site-header-inner .site-header-action {
+  display: flex;
+}
+
+.site-header-inner .site-actions-bottom {
+  margin-top: 1rem;
+  border-top: 1px solid #888;
+  height: 40px;
+  display: flex;
+  color: #ddd;
+  font-size: 0.925rem;
+  align-items: flex-end;
+}
+
+.site-header-inner .site-actions-bottom span {
+  flex-shrink: 0;
+}
+
+.site-header-inner .site-actions-bottom a {
+  margin: 0 0.325rem;
+  color: #00adb5;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+@media (max-width: 767.9999px) {
+  .site-header.container {
+    max-width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+
+  .site-header-inner .site-header-action {
+    width: 100%;
+  }
+
+  .site-header-inner .site-header-logo {
+    margin: 0;
+  }
+
+  .site-header .site-header-inner {
+    display: flex;
+    align-items: center;
+  }
+
+  .site-header .site-actions {
+    margin: 0;
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .site-header .site-actions-bars {
+    color: #fff;
+    font-size: 1.25rem;
+    margin-left: 0.75rem;
+    cursor: pointer;
+  }
+}
+
+.site-actions-noti {
+  cursor: pointer;
+}
+
+.site-actions-noti svg {
+  position: relative;
+  top: -2px;
+  fill: #fff;
+  margin-left: 1rem;
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width: 320px) {
+  .input-xs-wrapper {
+    display: none;
+  }
+}

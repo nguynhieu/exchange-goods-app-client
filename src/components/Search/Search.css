@@ -1,0 +1,120 @@
+.site-action-search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.site-action-search form {
+  width: 100%;
+}
+
+.input-xs-wrapper {
+  position: absolute;
+  bottom: -30px;
+  transition: 0.2s;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1050;
+  height: 40px;
+  width: 90%;
+  min-width: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0.25rem;
+  color: #999;
+  font-size: 0.925rem;
+}
+
+.input-xs-wrapper svg {
+  position: absolute;
+  right: 0.5rem;
+  width: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1052;
+  cursor: pointer;
+}
+
+.input-xs-wrapper .input-xs {
+  padding: 0 0.5rem;
+  border-radius: 0.25rem;
+  z-index: 1051;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ddd;
+  outline: none;
+  color: #111;
+}
+
+.input-xs-wrapper.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: -10px;
+}
+
+.site-action-search input {
+  max-width: 520px;
+  padding: 0.125rem 0.5rem;
+  height: 40px;
+  width: calc(100% - 40px);
+  background: #393e46;
+  border: none;
+  color: #fff;
+}
+
+.site-action-search input::placeholder {
+  color: #ddd;
+}
+
+.site-action-search button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #393e46;
+  color: #fff;
+}
+
+.site-action-search button:hover {
+  color: #00adb5;
+}
+
+.site-action-search button svg {
+  fill: #fff;
+  width: 1.125rem;
+}
+
+.site-action-search .search-xs {
+  position: relative;
+  margin-left: auto;
+  margin-top: -5px;
+  margin-right: 0.25rem;
+}
+
+@media (max-width: 320px) {
+  .site-action-search .search-xs {
+    display: block !important;
+  }
+
+  .site-action-search .btn-xs {
+    display: block !important;
+    float: right;
+    background: none;
+    font-size: 18px;
+    outline: none;
+    position: relative;
+    right: -5px;
+  }
+
+  .site-actions-noti svg {
+    margin: 0 !important;
+  }
+
+  .site-action-search button,
+  .site-action-search .search-input-bigger {
+    display: none;
+  }
+}

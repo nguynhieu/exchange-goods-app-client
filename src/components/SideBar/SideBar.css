@@ -1,0 +1,42 @@
+.sidebar {
+  width: 280px;
+}
+
+.ant-collapse-content-box {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px !important;
+}
+
+.ant-collapse-header {
+  font-size: 1rem;
+}
+
+.ant-collapse-content-box > div {
+  padding: 0 20px !important;
+}
+
+.sidebar .time-line {
+  padding: 0px 12px;
+  margin-top: 1rem;
+}
+
+.sidebar .time-line img {
+  width: 28px;
+}
+
+.sidebar .time-line a {
+  font-size: 1rem;
+  color: #222;
+}
+
+.ant-radio-group.ant-radio-group-outline {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    width: 240px;
+  }
+}

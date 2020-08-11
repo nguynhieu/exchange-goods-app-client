@@ -1,0 +1,45 @@
+.home {
+  padding: 2rem 0;
+  display: flex;
+}
+
+.home .main {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.home .container {
+  flex: 1;
+  justify-content: space-between;
+}
+
+.home .user-online {
+  background: #fff;
+  border: 1px solid #999;
+  min-height: 300px;
+  flex: 1;
+}
+
+.home .notfind {
+  text-align: center;
+  position: relative;
+}
+
+.home .notfind p {
+  font-size: 1rem;
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.home .notfind img {
+  width: 100%;
+  margin: -0.5rem;
+}
+
+@media (max-width: 768px) {
+  .home .main {
+    margin-right: 0;
+  }
+}

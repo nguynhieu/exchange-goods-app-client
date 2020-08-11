@@ -1,0 +1,178 @@
+.wishlist {
+  z-index: 1200;
+  position: fixed;
+  min-width: 280px;
+  min-height: 100px;
+  background: var(--hover-color);
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px #000;
+  font-size: 1rem;
+  animation: wishlist 0.3s cubic-bezier(0.34, 1.4, 0.64, 1) 1;
+}
+
+.wishlist .wishlist-handle img {
+  max-width: 300px;
+  width: 100%;
+  margin-top: -2rem;
+}
+
+@keyframes wishlist {
+  from {
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.wishlist .wishlist-action {
+  display: flex;
+  justify-content: space-around;
+}
+
+.wishlist .wishlist-form {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.wishlist .wishlist-update-btn {
+  color: #222831;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.925rem;
+  background: #eee;
+  border: 2px solid #222831;
+  border-radius: 0.5rem;
+  float: right;
+  outline: none;
+  margin-top: 1rem;
+}
+
+.wishlist .wishlist-form input {
+  padding: 0.25rem 0.5rem;
+  border: none;
+  outline: none;
+  color: #111;
+  border-bottom-left-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
+}
+
+.wishlist .wishlist-form button {
+  padding: 0.25rem 0.5rem;
+  border: none;
+  outline: none;
+  border-bottom-right-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  pointer-events: none;
+}
+
+.wishlist .wishlist-form button.show {
+  pointer-events: auto;
+}
+
+.wishlist .wishlist-form button svg {
+  width: 20px;
+  height: 20px;
+  fill: #bbb;
+}
+
+.wishlist .wishlist-form button.show svg {
+  fill: var(--hover-color);
+}
+
+.wishlist .wishlist-action button {
+  border-radius: 0.5rem;
+  border: 2px solid #fff;
+  color: #000;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.925rem;
+  background: #eee;
+  outline: none;
+}
+
+.wishlist li {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  word-break: break-word;
+  line-height: 1.2;
+  text-indent: 1rem;
+}
+
+.wishlist li::after {
+  content: "+";
+  position: absolute;
+  top: 0;
+  left: -1rem;
+  font-weight: bold;
+}
+
+.wishlist li:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
+.wishlist li svg {
+  width: 30px;
+  height: 20px;
+  fill: #fff;
+  cursor: pointer;
+}
+
+.wishlist .wishlist-handle-add {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.wishlist .wishlist-handle-add button {
+  background: #eee;
+  color: #000;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  border: 2px solid #222831;
+  text-transform: uppercase;
+  font-size: 0.925rem;
+  font-weight: bold;
+}
+
+.wishlist .wishlist-handle-add button:nth-child(1) {
+  color: #888;
+  border: 2px solid #888;
+  pointer-events: none;
+}
+
+.wishlist .wishlist-handle-add button.show:nth-child(1) {
+  color: #000;
+  border: 2px solid #222831;
+  pointer-events: auto;
+}
+
+.wishlist .wishlist-handle-add button:nth-child(2) {
+  margin-left: 0.5rem;
+  background: #222831;
+  color: #fff;
+}
+
+.wishlist .my-wishlist h3 {
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 0.5rem 0 1rem;
+}
+
+.wishlist .my-wishlist li {
+  padding: 0 0.5rem;
+}
+
+.wishlist .my-wishlist li::after {
+  left: -0.5rem;
+}

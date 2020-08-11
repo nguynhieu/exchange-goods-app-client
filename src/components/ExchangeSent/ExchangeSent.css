@@ -1,0 +1,9 @@
+.exchange-sent button {
+  background: rgb(196, 97, 97);
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 0.25rem;
+}

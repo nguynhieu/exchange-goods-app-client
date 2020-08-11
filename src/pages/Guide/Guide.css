@@ -1,0 +1,36 @@
+.guide h3 {
+  text-align: center;
+  margin: 1rem 0 2rem;
+  font-weight: bold;
+}
+
+.guide-item {
+  margin-bottom: 2rem;
+}
+
+.guide-item .guide-condition {
+  font-style: italic;
+  margin-bottom: 1rem;
+  margin-top: -1rem;
+  font-weight: 0.925rem;
+}
+
+.guide-content h4 {
+  margin-bottom: 2rem;
+}
+
+.guide-content-item {
+  margin-bottom: 1rem;
+}
+
+.guide-content p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.guide-content img {
+  width: 100%;
+  margin: 1rem 0 2rem;
+  max-width: 600px;
+  box-shadow: 0 0 10px #ccc;
+}

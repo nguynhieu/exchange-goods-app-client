@@ -1,0 +1,17 @@
+.exchange-proposal-list {
+  margin-top: 1rem;
+}
+
+.exchange-proposal-list .notfind {
+  max-width: 500px;
+  margin: auto;
+}
+
+.exchange-proposal-list .notfind p {
+  text-align: center;
+}
+
+.exchange-proposal-list .notfind img {
+  width: 100%;
+  margin: -3rem 0 0;
+}

@@ -1,0 +1,9 @@
+.post-today .css-0 {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.infinite-scroll-component {
+  padding-top: 10px;
+}

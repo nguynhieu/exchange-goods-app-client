@@ -1,0 +1,26 @@
+.transactions-history {
+  margin-top: 2rem;
+}
+
+.transactions-history .table-wrap {
+  overflow-x: scroll;
+}
+
+.transactions-history .table-wrap table {
+  min-width: 998px;
+}
+
+.transactions-history td p {
+  background: var(--hover-color);
+  padding: 0.25rem 0.5rem;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 0.825rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.transactions-history td.failed p {
+  background: rgb(222, 97, 97);
+}
