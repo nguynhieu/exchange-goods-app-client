@@ -7,7 +7,7 @@ import axios from "./config/axios";
 import { PostContext, PostProvider } from "./contexts/PostContext";
 import { EffectContext, EffectProvider } from "./contexts/EffectApp";
 import { UserContext, UserProvider } from "./contexts/UserContext";
-import { ExchangeProvider } from "./contexts/ExchangeContext";
+import { ExchangeProvider, ExchangeContext } from "./contexts/ExchangeContext";
 import {
   NotificationProvider,
   NotificationContext
@@ -77,6 +77,7 @@ function App() {
   const { currentUser, error, setErr } = useContext(UserContext);
   const { setDefaultSwiperData, setNewPosts } = useContext(PostContext);
   const { setNewNotification } = useContext(NotificationContext);
+  const { setExchangeList } = useContext(ExchangeContext);
   const { setChatList } = useContext(ChatContext);
 
   const [isNewExchange, setIsNewExchange] = useState(false);
@@ -109,7 +110,7 @@ function App() {
       setNewPosts(data.post, data.index)
     );
     socket.on("server-send-notification", (data) => setNewNotification(data));
-    socket.on("server-exchange-data", (data) => setIsNewExchange(true));
+    socket.on("server-exchange-data", (data) => {setIsNewExchange(true); setExchangeList(data)});
     if (currentUser) {
       socket.emit("client-update-user", currentUser.username);
     }

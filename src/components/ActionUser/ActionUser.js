@@ -41,12 +41,12 @@ const SiteAction = () => {
 
   const userMenu = (
     <Menu>
-      <Menu.Item>
+      {currentUser && currentUser.isAdmin === true && <Menu.Item>
         <Link to="/manager-transactions">
           <Manager />
           <span>Quản lý</span>
         </Link>
-      </Menu.Item>
+      </Menu.Item>}
       <Menu.Item>
         <Link to={currentUser && `/profile/${currentUser._id}`}>
           <User />

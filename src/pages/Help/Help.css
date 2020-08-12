@@ -11,6 +11,9 @@
   width: 100%;
   position: absolute;
   top: -20px;
+  max-width: 480px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .help h5 {

@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import GridLoader from "react-spinners/GridLoader";
-import { Route, Link, useLocation } from "react-router-dom";
-import { Modal, Button, Input } from "antd";
+import { Route, Link, useLocation, Redirect } from "react-router-dom";
+import { Modal, Input } from "antd";
 
 import { ExchangeContext } from "../../contexts/ExchangeContext";
 import { UserContext } from "../../contexts/UserContext";
@@ -18,7 +18,7 @@ import "./ManagerTransaction.css";
 export default function () {
   const { chats, updateChat } = useContext(ChatContext);
   const { exchanges, isLoaded, updateExchange } = useContext(ExchangeContext);
-  const { setErr } = useContext(UserContext);
+  const { setErr, currentUser } = useContext(UserContext);
 
   const [loaded, setLoaded] = useState(false);
   const [data, setData] = useState(null);
@@ -83,6 +83,10 @@ export default function () {
       })
       .catch((err) => setErr(err.response.data));
   };
+
+  if (currentUser && currentUser.isAdmin === false) {
+    return <Redirect to="/"/>
+  }
 
   if (!isLoaded || !loaded) {
     return (

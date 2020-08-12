@@ -149,7 +149,7 @@ const Navbar = () => {
       )}
       {currentUser && (
         <div className="navbar-body">
-          <li
+          {currentUser.isAdmin === true && <li
             className="navbar-body-title admin"
             onClick={() => {
               handleShowNavbar();
@@ -161,7 +161,7 @@ const Navbar = () => {
               </span>
               Quản lý
             </Link>
-          </li>
+          </li>}
           <li className="navbar-body-title">Loại hàng hóa</li>
           <div className="navbar-body-link" onClick={() => handleShowNavbar()}>
             <Link to="/" onClick={() => filterType("all")}>
