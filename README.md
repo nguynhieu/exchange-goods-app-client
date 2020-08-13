@@ -8,11 +8,16 @@ an application used to exchange goods - demo
 [https://github.com/nguynhieu/exchange-goods-api](https://github.com/nguynhieu/exchange-goods-api)
 
 ## Main function
-- Like, comment in the Post, and send an announcement to the author of the article (Realtime)
-- Have Toastify for the other person when someone sends a request to exchange (Realtime)
+- Post an article
+- Add wishlist to yourself 
+- Like, comment in the Article, and send an announcement to the author of the article (Realtime)
+- Have Toastify for the other person when someone sends a request to exchange and show Exchange proposal list (Realtime)
+- user feedback at / help page (Realtime)
+
 
 ## Admin account
 email: admin@gmail.com
+
 password: 123123
 - Admin has the right to approve the exchange of goods
 
