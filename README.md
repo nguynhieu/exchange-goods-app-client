@@ -1,6 +1,9 @@
 # exchange-goods-app-client
 an application used to exchange goods - demo
 
+## Main stack
+ReactJS, ExpressJS, MongoDB, SocketIO
+
 ## Link firebase
 [https://exchange-goods-app-9e654.web.app/](https://exchange-goods-app-9e654.web.app/)
 
@@ -13,7 +16,6 @@ an application used to exchange goods - demo
 - Like, comment in the Article, and send an announcement to the author of the article (Realtime)
 - Have Toastify for the other person when someone sends a request to exchange and show Exchange proposal list (Realtime)
 - user feedback at / help page (Realtime)
-
 
 ## Admin account
 email: admin@gmail.com
