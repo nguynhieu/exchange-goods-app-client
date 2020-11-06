@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Menu, Dropdown, Button, Badge } from "antd";
 
-import { ReactComponent as NotificationIcon } from "../../public/images/notification.svg";
+import { ReactComponent as NotificationIcon } from "../../assets/images/notification.svg";
 
 import { NotificationContext } from "../../contexts/Notification";
 import { UserContext } from "../../contexts/UserContext";

@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 
 import NavHeader from "../NavHeader/NavHeader";
 import Search from "../Search/Search";
 import ActionUser from "../ActionUser/ActionUser";
-import logo from "../../public/images/logo.png";
+import logo from "../../assets/images/logo.png";
 import Navbar from "../Navbar/Navbar";
 
 import Notification from "../Notification/Notification";
@@ -21,6 +21,8 @@ const Header = () => {
   const { handleShowNavbar } = useContext(EffectContext);
   const { currentUser, setErr } = useContext(UserContext);
   const { filterPost } = useContext(PostContext);
+
+  const location = useLocation();
 
   const loadData = () => {
     axios
@@ -47,7 +49,7 @@ const Header = () => {
               <Search />
               <ActionUser />
             </div>
-            {!currentUser && (
+            {!currentUser || location.pathname === "/login" && (
               <div className="site-actions-bottom d-none d-md-flex">
                 <span>No wishlist yet?</span>
                 <Link to="/login">Sign in </Link>
@@ -59,13 +61,12 @@ const Header = () => {
             {currentUser && (
               <div className="site-actions-bottom d-none d-md-flex">
                 <span>
-                  Welcome to REI, best place to trust! We never forget you have
-                  a choice.
+                  Chào mừng đến với REI, nơi tốt nhất để trao niềm tin!
                 </span>
-                <Link to="/about">ABOUT REI {">>"}</Link>
+                <Link to="/about">Xem thêm về REI {">>"}</Link>
               </div>
             )}
-            {currentUser && (
+            {currentUser && location.pathname !== "/login" && (
               <div className="site-actions-noti d-block d-md-none">
                 <Notification />
               </div>

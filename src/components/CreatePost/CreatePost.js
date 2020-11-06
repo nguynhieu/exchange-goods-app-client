@@ -9,7 +9,7 @@ import ENDPOINT from "../../ENDPOINT";
 import { EffectContext } from "../../contexts/EffectApp";
 import { UserContext } from "../../contexts/UserContext";
 import { PostContext } from "../../contexts/PostContext";
-import { ReactComponent as Closer } from "../../public/images/close.svg";
+import { ReactComponent as Closer } from "../../assets/images/close.svg";
 import "./CreatePost.css";
 
 const { TextArea } = Input;
@@ -25,6 +25,7 @@ const CreatePost = () => {
   const [fileList, setFileList] = useState([]);
   const [waitingPosted, setWaitingPosted] = useState(false);
   const [address, setAddress] = useState("");
+
   // custom request
   const onUpload = ({ file, onSuccess }) => {
     const reader = new window.FileReader();
@@ -110,12 +111,12 @@ const CreatePost = () => {
                 onChange={(e) => setContent(e.target.value)}
                 name="content"
                 value={content}
-                placeholder="Write something..."
+                placeholder="Viết thêm thông tin..."
                 autoSize={{ minRows: 2, maxRows: 6 }}
               />
               <Select
                 showSearch
-                placeholder="Select a type of goods"
+                placeholder="Lựa chọn loại hàng"
                 optionFilterProp="children"
                 onChange={onChangeSelect}
                 filterOption={(input, option) =>
@@ -130,7 +131,7 @@ const CreatePost = () => {
                 <Option value="travels">Du lịch - Phượt</Option>
                 <Option value="other">Khác</Option>
               </Select>
-              <Input value={address} placeholder="Your address" onChange={(e) => setAddress(e.target.value)}/>
+              <Input value={address} placeholder="Địa chỉ của bạn" onChange={(e) => setAddress(e.target.value)}/>
               <ImgCrop rotate>
                 <Upload
                   action=""
@@ -152,7 +153,7 @@ const CreatePost = () => {
                 show: content.length > 0 && typeGoods && address
               })}
             >
-              {!waitingPosted && "Post"}
+              {!waitingPosted && "Đăng bài"}
               {waitingPosted && <PulseLoader />}
             </button>
           </div>

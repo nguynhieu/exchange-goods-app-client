@@ -10,8 +10,8 @@ import { ChatContext } from "../../contexts/ChatContext";
 
 import ShowTime from "../../components/ShowTime/ShowTime";
 
-import Transaction from "../../public/images/transaction.png";
-import Helper from "../../public/images/helper.png";
+import Transaction from "../../assets/images/transaction.png";
+import Helper from "../../assets/images/helper.png";
 import ENDPOINT from "../../ENDPOINT";
 import "./ManagerTransaction.css";
 

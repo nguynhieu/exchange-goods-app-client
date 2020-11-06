@@ -2,9 +2,9 @@ import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import classNames from "classnames";
 
-import { ReactComponent as Search } from "../../public/images/search.svg";
-import { ReactComponent as Close } from "../../public/images/close.svg";
-import { ReactComponent as SearchImg } from "../../public/images/search.svg";
+import { ReactComponent as Search } from "../../assets/images/search.svg";
+import { ReactComponent as Close } from "../../assets/images/close.svg";
+import { ReactComponent as SearchImg } from "../../assets/images/search.svg";
 import { EffectContext } from "../../contexts/EffectApp";
 import { PostContext } from "../../contexts/PostContext";
 
@@ -36,7 +36,7 @@ export default function () {
           })}
         >
           <input
-            placeholder="Search articles by ID"
+            placeholder="Tìm bài viết theo ID"
             className="input-xs"
             onChange={(e) => setInputValue(e.target.value)}
           />
@@ -50,7 +50,7 @@ export default function () {
         <input
           onChange={(e) => setInputValue(e.target.value)}
           className="search-input-bigger"
-          placeholder="Find articles by ID"
+          placeholder="Tìm bài viết theo ID"
         />
         <button>
           <Search />

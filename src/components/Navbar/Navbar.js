@@ -10,19 +10,19 @@ import { ExchangeContext } from "../../contexts/ExchangeContext";
 
 import { userLogout } from "../../services/socket";
 
-import { ReactComponent as Closer } from "../../public/images/close.svg";
-import { ReactComponent as WishList } from "../../public/images/wishlist.svg";
-import { ReactComponent as Exchange } from "../../public/images/exchange-icon.svg";
-import { ReactComponent as Request } from "../../public/images/request.svg";
-import { ReactComponent as Address } from "../../public/images/address.svg";
-import { ReactComponent as Gmail } from "../../public/images/gmail.svg";
-import { ReactComponent as Phone } from "../../public/images/phone.svg";
-import { ReactComponent as Post } from "../../public/images/post.svg";
-import { ReactComponent as History } from "../../public/images/history.svg";
-import { ReactComponent as Help } from "../../public/images/help.svg";
-import { ReactComponent as Guide } from "../../public/images/guide.svg";
-import { ReactComponent as Manager } from "../../public/images/administrator.svg";
-import Notfind from "../../public/images/notfind2.png";
+import { ReactComponent as Closer } from "../../assets/images/close.svg";
+import { ReactComponent as WishList } from "../../assets/images/wishlist.svg";
+import { ReactComponent as Exchange } from "../../assets/images/exchange-icon.svg";
+import { ReactComponent as Request } from "../../assets/images/request.svg";
+import { ReactComponent as Address } from "../../assets/images/address.svg";
+import { ReactComponent as Gmail } from "../../assets/images/gmail.svg";
+import { ReactComponent as Phone } from "../../assets/images/phone.svg";
+import { ReactComponent as Post } from "../../assets/images/post.svg";
+import { ReactComponent as History } from "../../assets/images/history.svg";
+import { ReactComponent as Help } from "../../assets/images/help.svg";
+import { ReactComponent as Guide } from "../../assets/images/guide.svg";
+import { ReactComponent as Manager } from "../../assets/images/administrator.svg";
+import Notfind from "../../assets/images/notfind2.png";
 import MyWishList from "../WishList/WishList";
 import Logo from "../Logo/Logo";
 
@@ -94,7 +94,7 @@ const Navbar = () => {
           <div className="d-flex">
             <li className="signin" onClick={() => handleShowNavbar()}>
               <Link to="/login">
-                Sign in{" "}
+                Đăng nhập{" "}
                 <span>
                   <i className="far fa-user" />
                 </span>
@@ -102,7 +102,7 @@ const Navbar = () => {
             </li>
             <li className="signup" onClick={() => handleShowNavbar()}>
               <Link to="/signup">
-                Sign up{" "}
+                Đăng kí{" "}
                 <span>
                   <i className="fas fa-map-marker-alt" />
                 </span>
@@ -127,7 +127,7 @@ const Navbar = () => {
               }}
             >
               <Link to="/">
-                Log out{" "}
+                Đăng xuất{" "}
                 <span>
                   <i className="fas fa-sign-out-alt" />
                 </span>
@@ -198,7 +198,7 @@ const Navbar = () => {
               <span>
                 <WishList />
               </span>
-              My wish list
+              Wish list của tôi
             </a>
           </li>
           <li
@@ -214,14 +214,14 @@ const Navbar = () => {
               </span>
               Ds. được yêu cầu trao đổi
             </Link>
-            {!isLoaded && <span class="badge badge-light ml-1">loading</span>}
+            {!isLoaded && <span className="badge badge-light ml-1">loading</span>}
             {unreadExchanges.length === 0 && isLoaded && (
-              <span class="badge badge-light ml-1">
+              <span className="badge badge-light ml-1">
                 {exchangesListOfUser.length}
               </span>
             )}
             {unreadExchanges.length > 0 && (
-              <span class="badge badge-danger ml-1">
+              <span className="badge badge-danger ml-1">
                 {exchangesListOfUser.length}
               </span>
             )}
@@ -233,7 +233,7 @@ const Navbar = () => {
               </span>
               Các đề nghị trao đổi đã gửi
             </Link>
-            {!isLoaded && <span class="badge badge-light ml-1">loading</span>}
+            {!isLoaded && <span className="badge badge-light ml-1">loading</span>}
             {exchangeSent.length >= 0 && (
               <span class="badge badge-light ml-1">{exchangeSent.length}</span>
             )}
@@ -273,7 +273,7 @@ const Navbar = () => {
         </div>
       )}
       <div className="navbar-footer">
-        <h3>contact with us</h3>
+        <h3>Liên hệ với chúng tôi</h3>
         <li className="navbar-footer-item">
           <span>
             <Address />

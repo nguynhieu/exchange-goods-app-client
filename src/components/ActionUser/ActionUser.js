@@ -6,13 +6,13 @@ import { UserContext } from "../../contexts/UserContext";
 import { EffectContext } from "../../contexts/EffectApp";
 import { ExchangeContext } from "../../contexts/ExchangeContext";
 
-import { ReactComponent as WishList } from "../../public/images/wishlist.svg";
-import { ReactComponent as Logout } from "../../public/images/logout.svg";
-import { ReactComponent as User } from "../../public/images/user.svg";
-import { ReactComponent as Exchange } from "../../public/images/exchange-icon.svg";
-import { ReactComponent as Request } from "../../public/images/request.svg";
-import { ReactComponent as History } from "../../public/images/history.svg";
-import { ReactComponent as Manager } from "../../public/images/administrator.svg";
+import { ReactComponent as WishList } from "../../assets/images/wishlist.svg";
+import { ReactComponent as Logout } from "../../assets/images/logout.svg";
+import { ReactComponent as User } from "../../assets/images/user.svg";
+import { ReactComponent as Exchange } from "../../assets/images/exchange-icon.svg";
+import { ReactComponent as Request } from "../../assets/images/request.svg";
+import { ReactComponent as History } from "../../assets/images/history.svg";
+import { ReactComponent as Manager } from "../../assets/images/administrator.svg";
 
 import Notification from "../Notification/Notification";
 import { userLogout } from "../../services/socket";
@@ -61,7 +61,7 @@ const SiteAction = () => {
       >
         <a href>
           <WishList />
-          <span>My wishlist</span>
+          <span>Wish list của thôi</span>
         </a>
       </Menu.Item>
       <Menu.Item>
@@ -106,7 +106,7 @@ const SiteAction = () => {
           }}
         >
           <Logout />
-          <span>Log out</span>
+          <span>Đăng xuất</span>
         </Link>
       </Menu.Item>
     </Menu>

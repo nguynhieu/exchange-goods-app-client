@@ -129,6 +129,10 @@
   padding: 0.5rem;
 }
 
+.post-reaction .post-exchange.disable-color svg {
+  fill: #ccc;
+}
+
 .post-reaction {
   margin-bottom: 0.25rem;
   padding: 0.5rem 1rem;
@@ -141,6 +145,10 @@
   border: none;
   margin-right: 0.5rem;
   outline: none;
+}
+
+.post-reaction button.disable-like {
+  pointer-events: none;
 }
 
 .post-reaction svg {

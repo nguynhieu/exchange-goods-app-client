@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 import "./Guide.css";
 
-import PostB1 from "../../public/imagesGuide/postb1.png";
-import PostB2 from "../../public/imagesGuide/postb2.png";
-import PostB3 from "../../public/imagesGuide/postb3.png";
-import ExchangeB1 from "../../public/imagesGuide/exchangeb1.png";
-import ExchangeB2 from "../../public/imagesGuide/exchangeb2.png";
+import PostB1 from "../../assets/imagesGuide/postb1.png";
+import PostB2 from "../../assets/imagesGuide/postb2.png";
+import PostB3 from "../../assets/imagesGuide/postb3.png";
+import ExchangeB1 from "../../assets/imagesGuide/exchangeb1.png";
+import ExchangeB2 from "../../assets/imagesGuide/exchangeb2.png";
 
 export default function () {
   return (

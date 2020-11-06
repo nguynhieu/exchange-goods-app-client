@@ -5,10 +5,10 @@ import axios from "axios";
 import PulseLoader from "react-spinners/PulseLoader";
 import Swal from "sweetalert2";
 
-import { ReactComponent as Warning } from "../../public/images/warning.svg";
+import { ReactComponent as Warning } from "../../assets/images/warning.svg";
 import ENDPOINT from "../../ENDPOINT.js";
-import recommend from "../../public/images/recommend.png";
-import image from "../../public/images/bgr.png";
+import recommend from "../../assets/images/recommend.png";
+import image from "../../assets/images/bgr.png";
 import "./Signup.css";
 
 const Signup = () => {

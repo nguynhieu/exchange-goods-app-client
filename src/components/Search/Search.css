@@ -8,6 +8,11 @@
   width: 100%;
 }
 
+.site-action-search form button {
+  position: relative;
+  top: -1px;
+}
+
 .input-xs-wrapper {
   position: absolute;
   bottom: -30px;
@@ -116,5 +121,11 @@
   .site-action-search button,
   .site-action-search .search-input-bigger {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-action-search form button {
+    top: 0px;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Input } from "antd";
 import classNames from "classnames";
@@ -10,8 +10,8 @@ import { ChatContext } from "../../contexts/ChatContext";
 
 import ShowTime from "../../components/ShowTime/ShowTime";
 
-import { ReactComponent as Send } from "../../public/images/send.svg";
-import ThankImg from "../../public/images/thank.png";
+import { ReactComponent as Send } from "../../assets/images/send.svg";
+import ThankImg from "../../assets/images/thank.png";
 
 import ENDPOINT from "../../ENDPOINT";
 import { socket } from "../../services/socket";

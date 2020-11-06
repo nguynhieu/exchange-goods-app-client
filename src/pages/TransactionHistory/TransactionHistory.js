@@ -6,7 +6,7 @@ import { UserContext } from "../../contexts/UserContext";
 
 import ShowTime from "../../components/ShowTime/ShowTime";
 
-import Notfind from "../../public/images/notfind2.png";
+import Notfind from "../../assets/images/notfind2.png";
 import "./TransactionHistory.css";
 
 export default function () {

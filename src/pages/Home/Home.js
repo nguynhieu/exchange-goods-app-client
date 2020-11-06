@@ -6,7 +6,7 @@ import Post from "../../components/Post/Post";
 import SideBar from "../../components/SideBar/SideBar";
 import Loading from "../../components/Loading/Loading";
 
-import Notfind from "../../public/images/notfind.png";
+import Notfind from "../../assets/images/notfind.png";
 
 import "./Home.css";
 

@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-import { ReactComponent as Address } from "../../public/images/address.svg";
-import { ReactComponent as Gmail } from "../../public/images/gmail.svg";
-import { ReactComponent as Phone } from "../../public/images/phone.svg";
+import { ReactComponent as Address } from "../../assets/images/address.svg";
+import { ReactComponent as Gmail } from "../../assets/images/gmail.svg";
+import { ReactComponent as Phone } from "../../assets/images/phone.svg";
 
-import Logo from "../../public/images/logo.png";
+import Logo from "../../assets/images/logo.png";
 import "./Footer.css";
 
 const Footer = () => {
@@ -16,7 +15,7 @@ const Footer = () => {
           <div className="footer-logo">
             <img src={Logo} alt="" />
           </div>
-          <div>The best place to trust.</div>
+          <div>Nơi tốt nhất để trao niềm tin.</div>
         </div>
         <div className="footer-infor">
           <li className="footer-infor-item">

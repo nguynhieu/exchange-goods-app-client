@@ -12,7 +12,7 @@ import Post from "../../components/Post/Post";
 import "./ProfileUser.css";
 import ENDPOINT from "../../ENDPOINT";
 import Notfound from "../Notfound/Notfound";
-import BackgroundRepeat from "../../public/images/background-repeat.jpg";
+import BackgroundRepeat from "../../assets/images/background-repeat.jpg";
 
 export default function (props) {
   const params = props.match.params.userId;
@@ -91,7 +91,7 @@ export default function (props) {
             })}
             to={`/profile/${userInfor._id}/timeline`}
           >
-            Timeline
+            Dòng thời gian
           </Link>
           <Link
             className={classNames({
@@ -99,7 +99,7 @@ export default function (props) {
             })}
             to={`/profile/${userInfor._id}/about`}
           >
-            About
+            Thông tin
           </Link>
         </nav>
         <Route exact path={`/profile/${userInfor._id}/timeline`}>
@@ -120,13 +120,13 @@ export default function (props) {
             <table className="table">
               <thead>
                 <tr className="thead-dark">
-                  <th>Title</th>
-                  <th>Infomation</th>
+                  <th>Chủ đề</th>
+                  <th>Nội dung</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Username</td>
+                  <td>Tên người dùng</td>
                   <td>{userInfor.username}</td>
                 </tr>
                 <tr>
@@ -134,11 +134,11 @@ export default function (props) {
                   <td>{userInfor.email}</td>
                 </tr>
                 <tr>
-                  <td>Phone number</td>
+                  <td>Số điện thoai</td>
                   <td>{userInfor.phone}</td>
                 </tr>
                 <tr>
-                  <td>Address</td>
+                  <td>Địa chỉ</td>
                   <td>{userInfor.address}</td>
                 </tr>
                 <tr>
@@ -151,14 +151,14 @@ export default function (props) {
                   )}
                 </tr>
                 <tr>
-                  <td>Total posts</td>
+                  <td>Số bài viết</td>
                   <td>
                     {postsOfUser !== null && postsOfUser.length}
                     {!postsOfUser && "Loading..."}
                   </td>
                 </tr>
                 <tr>
-                  <td>Number of exchanges</td>
+                  <td>Số giao dịch</td>
                   <td>
                     {postsOfUser !== null && postsOfUser.length}
                     {!postsOfUser && "Loading..."}

@@ -7,12 +7,12 @@ import axios from "axios";
 import { UserContext } from "../../contexts/UserContext";
 import { PostContext } from "../../contexts/PostContext";
 
-import recommend from "../../public/images/recommend.png";
+import recommend from "../../assets/images/recommend.png";
 import "./SideBar.css";
 const { Panel } = Collapse;
 
 const SideBar = () => {
-  const { currentUser, setErr } = useContext(UserContext);
+  const { setErr } = useContext(UserContext);
   const { filterPost, setIsLoaded, setIsFilter } = useContext(PostContext);
 
   const [value, setValue] = useState("all");
@@ -68,7 +68,7 @@ const SideBar = () => {
         ))}
         <div className="time-line">
           <img src={recommend} alt="" />
-          <Link to="/posts-history">Time Line</Link>
+          <Link to="/posts-history">Dòng thời gian</Link>
         </div>
       </div>
     </div>

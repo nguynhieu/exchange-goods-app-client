@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
-import axios from "./config/axios";
+import axios from "./configs/axios";
 import { PostContext, PostProvider } from "./contexts/PostContext";
 import { EffectContext, EffectProvider } from "./contexts/EffectApp";
 import { UserContext, UserProvider } from "./contexts/UserContext";
@@ -38,7 +38,7 @@ import Event from "./pages/Event/Event";
 import Gift from "./pages/Gift/Gift";
 import About from "./pages/About/About";
 
-import { ReactComponent as Closer } from "./public/images/close.svg";
+import { ReactComponent as Closer } from "./assets/images/close.svg";
 
 import "antd/dist/antd.css";
 import "react-toastify/dist/ReactToastify.css";

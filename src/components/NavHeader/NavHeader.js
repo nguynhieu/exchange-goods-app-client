@@ -8,11 +8,11 @@ const NavHeader = () => {
     <div className="header-nav">
       <div className="container">
         <nav>
-          <Link to="/about">About REI</Link>
-          <Link to="/event">Event</Link>
-          <Link to="/gift">Gift</Link>
-          <Link to="/help">Help</Link>
-          <Link to="/guide">Guide</Link>
+          <Link to="/about">REI App</Link>
+          <Link to="/event">Sự kiện</Link>
+          <Link to="/gift">Quà tặng</Link>
+          <Link to="/help">Giúp đỡ</Link>
+          <Link to="/guide">Hướng dẫn</Link>
         </nav>
       </div>
     </div>

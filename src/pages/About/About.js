@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./About.css";
-import AboutImg from "../../public/images/about.jpg";
+import AboutImg from "../../assets/images/about.jpg";
 
 export default function () {
   return (

@@ -4,11 +4,11 @@ import { Tooltip, Modal, Select, Input } from "antd";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import { ReactComponent as Heart } from "../../public/images/heart.svg";
-import { ReactComponent as Exchange } from "../../public/images/exchange.svg";
-import { ReactComponent as Comment } from "../../public/images/comment.svg";
-import { ReactComponent as Love } from "../../public/images/love.svg";
-import { ReactComponent as Send } from "../../public/images/send.svg";
+import { ReactComponent as Heart } from "../../assets/images/heart.svg";
+import { ReactComponent as Exchange } from "../../assets/images/exchange.svg";
+import { ReactComponent as Comment } from "../../assets/images/comment.svg";
+import { ReactComponent as Love } from "../../assets/images/love.svg";
+import { ReactComponent as Send } from "../../assets/images/send.svg";
 
 import { EffectContext } from "../../contexts/EffectApp";
 import { PostContext } from "../../contexts/PostContext";
@@ -32,6 +32,7 @@ const Post = (props) => {
   const { setNewNotification } = useContext(NotificationContext);
   const { setExchangeList } = useContext(ExchangeContext);
 
+  const [liking, setLiking] = useState(false);
   const [content, setContent] = useState("");
   const [isShowComments, setIsShowComments] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -84,11 +85,26 @@ const Post = (props) => {
     textInput.current.focus();
   };
 
-  const handleLike = (sender, viewer, postId) => {
+  const handleLike = (sender, viewer, postId, post) => {
+    setLiking(true)
     let type;
+
+    const indexPost = allPost.findIndex((post) => post.postId === postId);
+    const likes = post.likes;
+
     if (post.likes.includes(sender)) {
       type = "unlike";
-    } else type = "like";
+      likes.splice(likes.indexOf(sender), 1);
+      const newPost = { ...post, likes }
+      setNewPosts(newPost, indexPost)
+
+    } else {
+      type = "like";
+      likes.splice(likes.indexOf(sender), 0, sender);
+      const newPost = { ...post, likes }
+      setNewPosts(newPost, indexPost)
+
+    };
 
     axios
       .post(`${ENDPOINT}posts/like`, {
@@ -98,7 +114,7 @@ const Post = (props) => {
         type
       })
       .then((res) => {
-        setNewPosts(res.data.newPost, res.data.indexPost);
+        setLiking(false)
         setNewNotification(res.data.newNotifications);
         socket.emit("user-like", {
           post: res.data.newPost,
@@ -244,6 +260,7 @@ const Post = (props) => {
           {!post.likes.includes(currentUser.username) && (
             <Tooltip placement="right" title={"Yêu thích"}>
               <button
+                className={liking ? "disable-like": ""}
                 onClick={() =>
                   handleLike(
                     currentUser.username,
@@ -260,8 +277,9 @@ const Post = (props) => {
           {post.likes.includes(currentUser.username) && (
             <Tooltip placement="right" title={"Hủy yêu thích"}>
               <button
+                className={liking ? "disable-like": ""}
                 onClick={() =>
-                  handleLike(currentUser.username, post.username, post.postId)
+                  handleLike(currentUser.username, post.username, post.postId, post)
                 }
               >
                 <Love />
@@ -276,7 +294,7 @@ const Post = (props) => {
           {currentUser.username === post.username && (
             <Tooltip placement="left">
               <button
-                className="post-exchange"
+                className="post-exchange disable-color"
                 disabled
                 onClick={() => setVisible(true)}
               >
@@ -340,6 +358,7 @@ const Post = (props) => {
                 post.postId,
                 content
               );
+              setIsShowComments(true);
               setContent("");
             }}
           >
@@ -349,7 +368,7 @@ const Post = (props) => {
                 ref={textInput}
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                placeholder="Write comment..."
+                placeholder="Viết bình luận..."
               />
               <button
                 onClick={(e) => {
@@ -361,6 +380,7 @@ const Post = (props) => {
                     post.postId,
                     content
                   );
+                  setIsShowComments(true);
                   setContent("");
                 }}
                 className={classNames({

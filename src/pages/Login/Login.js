@@ -5,10 +5,10 @@ import classNames from "classnames";
 import PulseLoader from "react-spinners/PulseLoader";
 
 import ENDPOINT from "../../ENDPOINT.js";
-import recommend from "../../public/images/recommend.png";
-import image from "../../public/images/bgr.png";
-import welcome from "../../public/images/welcome.png";
-import { ReactComponent as Warning } from "../../public/images/warning.svg";
+import recommend from "../../assets/images/recommend.png";
+import image from "../../assets/images/bgr.png";
+import welcome from "../../assets/images/welcome.png";
+import { ReactComponent as Warning } from "../../assets/images/warning.svg";
 import { UserContext } from "../../contexts/UserContext";
 import { userLogin } from '../../services/socket'
 import "./Login.css";

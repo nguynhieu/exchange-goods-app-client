@@ -6,7 +6,7 @@ import { UserContext } from "../../contexts/UserContext";
 
 import Exchange from "../../components/Exchange/Exchange";
 
-import Notfind from "../../public/images/notfind2.png";
+import Notfind from "../../assets/images/notfind2.png";
 import "./ExchangeProposal.css";
 
 export default function () {

@@ -1,5 +1,9 @@
 .sidebar {
   width: 280px;
+  height: fit-content;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
 }
 
 .ant-collapse-content-box {
