@@ -27,9 +27,7 @@ export default function() {
   const [isLoadedData, setIsLoadedData] = useState(true);
 
   const addItem = () => {
-    if (goodsContentInput === "") {
-      return;
-    }
+    if (goodsContentInput === "") { }
     setGoodsListToAdd([...goodsListToAdd, goodsContentInput]);
   };
 
@@ -75,6 +73,14 @@ export default function() {
         handleShowWishlist(false, false);
       });
   };
+
+  const onClickToAddWishList = (e) => {
+    e.preventDefault();
+    setGoodsContentInput("");
+    setGoodsListToAdd([]);
+    handleShowWishlist(false, false);
+    handleShowLayerWishlist();
+  }
 
   return (
     <div>
@@ -192,13 +198,7 @@ export default function() {
                 Lưu
               </button>
               <button
-                onClick={e => {
-                  e.preventDefault();
-                  setGoodsContentInput("");
-                  setGoodsListToAdd([]);
-                  handleShowWishlist(false, false);
-                  handleShowLayerWishlist();
-                }}
+                onClick={() => onClickToAddWishList()}
               >
                 Hủy
               </button>
