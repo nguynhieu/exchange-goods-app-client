@@ -97,14 +97,14 @@ const Login = () => {
                     email && password.length > 5 && isLoading === false
                 })}
               >
-                {!isLoading && "Log in"}
+                {!isLoading && "Đăng nhập"}
                 {isLoading && <PulseLoader />}
               </button>
             </div>
             <div className="login-suggest-signup">
               <div>
                 <img src={recommend} alt="" />
-                Don't have an account? <Link to="/signup">Sign up</Link>
+                Chưa có tài khoản? <Link to="/signup">Đăng kí ngay</Link>
               </div>
             </div>
           </form>

@@ -49,13 +49,13 @@ const Header = () => {
               <Search />
               <ActionUser />
             </div>
-            {!currentUser || location.pathname === "/login" && (
+            {!currentUser && (
               <div className="site-actions-bottom d-none d-md-flex">
-                <span>No wishlist yet?</span>
-                <Link to="/login">Sign in </Link>
-                <span>to exchange goods with others or</span>
-                <Link to="/signup">sign up</Link>
-                now
+                <span>Bạn chưa có danh sách mong muốn?</span>
+                <Link to="/login">đăng nhập </Link>
+                <span>để thêm hoặc</span>
+                <Link to="/signup">đăng kí</Link>
+                bây giờ
               </div>
             )}
             {currentUser && (

@@ -157,7 +157,7 @@ const Signup = () => {
               })}
             >
               <span>
-                {!isLoading && "Sign up"}
+                {!isLoading && "Đăng kí"}
                 {isLoading && <PulseLoader />}
               </span>
             </button>
@@ -166,7 +166,7 @@ const Signup = () => {
           <div className="signup-suggest-login">
             <div>
               <img src={recommend} alt="" />
-              Have an account?<Link to="/login"> Log in</Link>
+              Đã có tài khoản?<Link to="/login"> Đăng nhập ngay</Link>
             </div>
           </div>
         </div>

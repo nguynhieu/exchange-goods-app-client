@@ -118,7 +118,7 @@ const SiteAction = () => {
         <div className="site-action-user d-none d-md-flex">
           <li className="signin">
             <Link to="/login">
-              Sign in{" "}
+              Đăng nhập{" "}
               <span>
                 <i className="far fa-user" />
               </span>
@@ -126,7 +126,7 @@ const SiteAction = () => {
           </li>
           <li className="signup">
             <Link to="/signup">
-              Sign up{" "}
+              Đăng kí{" "}
               <span>
                 <i className="fas fa-map-marker-alt" />
               </span>
