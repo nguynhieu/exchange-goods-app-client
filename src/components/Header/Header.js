@@ -2,13 +2,8 @@ import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 
-import NavHeader from "../NavHeader/NavHeader";
-import Search from "../Search/Search";
-import ActionUser from "../ActionUser/ActionUser";
-import logo from "../../assets/images/logo.png";
-import Navbar from "../Navbar/Navbar";
-
-import Notification from "../Notification/Notification";
+import { NavHeader, Search, Navbar, ActionUser, Notification } from '../'
+import { Logo } from "../../assets/images";
 
 import { EffectContext } from "../../contexts/EffectApp";
 import { UserContext } from "../../contexts/UserContext";
@@ -41,7 +36,7 @@ const Header = () => {
         <div className="site-header-inner">
           <div className="site-header-logo">
             <Link to="/" onClick={() => loadData()}>
-              <img src={logo} alt="" />
+              <img src={Logo} alt="" />
             </Link>
           </div>
           <div className="site-actions">

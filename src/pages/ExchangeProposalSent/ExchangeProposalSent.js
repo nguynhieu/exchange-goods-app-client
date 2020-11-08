@@ -4,9 +4,9 @@ import GridLoader from "react-spinners/GridLoader";
 import { ExchangeContext } from "../../contexts/ExchangeContext";
 import { UserContext } from "../../contexts/UserContext";
 
-import ExchangeSent from "../../components/ExchangeSent/ExchangeSent";
+import { ExchangeSent } from "../../components";
+import { Notfind } from "../../assets/images";
 
-import Notfind from "../../assets/images/notfind2.png";
 import "./ExchangeProposalSent.css";
 
 export default function () {

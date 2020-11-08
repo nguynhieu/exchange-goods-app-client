@@ -1,6 +1,6 @@
 import React from "react";
 
-import Notfind from "../../components/Notfind/Notfind";
+import { Notfind } from "../../components";
 
 export default function () {
   return (

@@ -8,10 +8,9 @@ import { ExchangeContext } from "../../contexts/ExchangeContext";
 import { UserContext } from "../../contexts/UserContext";
 import { ChatContext } from "../../contexts/ChatContext";
 
-import ShowTime from "../../components/ShowTime/ShowTime";
+import { ShowTime } from "../../components";
+import { Transaction, Helper } from "../../assets/images/transaction.png";
 
-import Transaction from "../../assets/images/transaction.png";
-import Helper from "../../assets/images/helper.png";
 import ENDPOINT from "../../ENDPOINT";
 import "./ManagerTransaction.css";
 

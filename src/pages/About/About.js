@@ -1,14 +1,14 @@
 import React from "react";
 
 import "./About.css";
-import AboutImg from "../../assets/images/about.jpg";
+import { About } from "../../assets/images";
 
 export default function () {
   return (
     <div className="about wrap-content">
       <div className="container">
         <h3>ABOUT REI</h3>
-        <img src={AboutImg} alt="" />
+        <img src={About} alt="" />
         <div className="about-article">
           An About Us page helps your company make a good first impression, and
           is critical for building customer trust and loyalty. An About Us page

@@ -5,10 +5,9 @@ import axios from "axios";
 import PulseLoader from "react-spinners/PulseLoader";
 import Swal from "sweetalert2";
 
-import { ReactComponent as Warning } from "../../assets/images/warning.svg";
+import { Warning, Recommend, Background } from "../../assets/images/bgr.png";
 import ENDPOINT from "../../ENDPOINT.js";
-import recommend from "../../assets/images/recommend.png";
-import image from "../../assets/images/bgr.png";
+
 import "./Signup.css";
 
 const Signup = () => {
@@ -48,7 +47,7 @@ const Signup = () => {
       .then(res => {
         setError("");
         setIsLoading(false);
-        Swal.fire("Success!", "Thanks for your faith", "success");
+        Swal.fire("Đăng kí thành công!", "Mời bạn đăng nhập", "success");
         setIsRegistered(true);
       })
       .catch(err => {
@@ -165,13 +164,13 @@ const Signup = () => {
           </form>
           <div className="signup-suggest-login">
             <div>
-              <img src={recommend} alt="" />
+              <img src={Recommend} alt="" />
               Đã có tài khoản?<Link to="/login"> Đăng nhập ngay</Link>
             </div>
           </div>
         </div>
         <div className="signup-background d-none d-md-block">
-          <img src={image} alt="" />
+          <img src={Background} alt="" />
         </div>
       </div>
     </div>

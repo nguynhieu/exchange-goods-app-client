@@ -5,7 +5,7 @@ import { Modal } from "antd";
 import { ExchangeContext } from "../../contexts/ExchangeContext";
 import { UserContext } from "../../contexts/UserContext";
 
-import ShowTime from "../ShowTime/ShowTime";
+import { ShowTime } from "../";
 import ENDPOINT from "../../ENDPOINT";
 import "./ExchangeSent.css";
 

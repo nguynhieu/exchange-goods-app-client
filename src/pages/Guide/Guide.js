@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./Guide.css";
 
-import PostB1 from "../../assets/imagesGuide/postb1.png";
-import PostB2 from "../../assets/imagesGuide/postb2.png";
-import PostB3 from "../../assets/imagesGuide/postb3.png";
-import ExchangeB1 from "../../assets/imagesGuide/exchangeb1.png";
-import ExchangeB2 from "../../assets/imagesGuide/exchangeb2.png";
+import { Postb1, Postb2, Postb3, ExchangeB1, ExchangeB2 }from "../../assets/imagesGuide";
 
 export default function () {
   return (
@@ -19,15 +15,15 @@ export default function () {
             <h4>1. Đăng bài viết</h4>
             <div className="guide-content-item">
               <p>B1: Click vào nút màu xanh bên phải, phía dưới màn hình</p>
-              <img src={PostB1} alt="" />
+              <img src={Postb1} alt="" />
             </div>
             <div className="guide-content-item">
               <p>B2: Điền đầy đủ thông tin vào form</p>
-              <img src={PostB2} alt="" />
+              <img src={Postb2} alt="" />
             </div>
             <div className="guide-content-item">
               <p>B3: Click vào nút POST để hoàn tất việc đăng bài</p>
-              <img src={PostB3} alt="" />
+              <img src={Postb3} alt="" />
             </div>
           </div>
           <div className="guide-item">

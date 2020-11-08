@@ -5,10 +5,9 @@ import classNames from "classnames";
 import PulseLoader from "react-spinners/PulseLoader";
 
 import ENDPOINT from "../../ENDPOINT.js";
-import recommend from "../../assets/images/recommend.png";
-import image from "../../assets/images/bgr.png";
-import welcome from "../../assets/images/welcome.png";
-import { ReactComponent as Warning } from "../../assets/images/warning.svg";
+
+import { Recommend, Background, Welcome, Warning }  from "../../assets/images";
+
 import { UserContext } from "../../contexts/UserContext";
 import { userLogin } from '../../services/socket'
 import "./Login.css";
@@ -63,7 +62,7 @@ const Login = () => {
       <div className="container">
         <div className="login-main">
           <div className="login-welcome">
-            <img src={welcome} alt="" />
+            <img src={Welcome} alt="" />
           </div>
           <form onSubmit={onSubmit}>
             <div className="login-form">
@@ -103,14 +102,14 @@ const Login = () => {
             </div>
             <div className="login-suggest-signup">
               <div>
-                <img src={recommend} alt="" />
+                <img src={Recommend} alt="" />
                 Chưa có tài khoản? <Link to="/signup">Đăng kí ngay</Link>
               </div>
             </div>
           </form>
         </div>
         <div className="signup-background d-none d-md-block">
-          <img src={image} alt="" />
+          <img src={Background} alt="" />
         </div>
       </div>
     </div>

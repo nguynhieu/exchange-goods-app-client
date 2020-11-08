@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import GridLoader from "react-spinners/GridLoader";
 
 import { PostContext } from "../../contexts/PostContext";
-import ShowTime from "../../components/ShowTime/ShowTime";
-import InfiniteScroll from "../../components/InfiniteScroll/InfiniteScroll";
+import { ShowTime, InfiniteScroll } from "../../components";
 
 import "./PostToday.css";
 

@@ -6,13 +6,14 @@ import classNames from "classnames";
 import { UserContext } from "../../contexts/UserContext";
 import { PostContext } from "../../contexts/PostContext";
 import { ExchangeContext } from "../../contexts/ExchangeContext";
-import Loading from "../../components/Loading/Loading";
-import Post from "../../components/Post/Post";
+
+import { Loading, Post } from "../../components";
+import { Notfound } from '../';
+
+import { BackgroundRepeat } from "../../assets/images";
 
 import "./ProfileUser.css";
 import ENDPOINT from "../../ENDPOINT";
-import Notfound from "../Notfound/Notfound";
-import BackgroundRepeat from "../../assets/images/background-repeat.jpg";
 
 export default function (props) {
   const params = props.match.params.userId;

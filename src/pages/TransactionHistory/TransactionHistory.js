@@ -4,9 +4,9 @@ import GridLoader from "react-spinners/GridLoader";
 import { ExchangeContext } from "../../contexts/ExchangeContext";
 import { UserContext } from "../../contexts/UserContext";
 
-import ShowTime from "../../components/ShowTime/ShowTime";
+import { ShowTime } from "../../components";
+import { Notfind } from "../../assets/images";
 
-import Notfind from "../../assets/images/notfind2.png";
 import "./TransactionHistory.css";
 
 export default function () {

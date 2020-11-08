@@ -22,9 +22,9 @@ import { ReactComponent as History } from "../../assets/images/history.svg";
 import { ReactComponent as Help } from "../../assets/images/help.svg";
 import { ReactComponent as Guide } from "../../assets/images/guide.svg";
 import { ReactComponent as Manager } from "../../assets/images/administrator.svg";
-import Notfind from "../../assets/images/notfind2.png";
-import MyWishList from "../WishList/WishList";
-import Logo from "../Logo/Logo";
+import { Notfind }from "../../assets/images";
+
+import { MyWishList, Logo } from '../';
 
 import ENDPOINT from "../../ENDPOINT";
 import "./Navbar.css";

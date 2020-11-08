@@ -2,11 +2,8 @@ import React, { useContext } from "react";
 
 import { PostContext } from "../../contexts/PostContext";
 
-import Post from "../../components/Post/Post";
-import SideBar from "../../components/SideBar/SideBar";
-import Loading from "../../components/Loading/Loading";
-
-import Notfind from "../../assets/images/notfind.png";
+import { Post, SideBar, Loading } from "../../components";
+import { Notfind } from "../../assets/images";
 
 import "./Home.css";
 

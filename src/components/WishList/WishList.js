@@ -7,8 +7,8 @@ import { UserContext } from "../../contexts/UserContext";
 import { EffectContext } from "../../contexts/EffectApp";
 import { ReactComponent as Plus } from "../../assets/images/plus.svg";
 import { ReactComponent as Delete } from "../../assets/images/delete.svg";
-import Notfound from "../../assets/images/notfound-wishlist.png";
-import Loading from "../Loading/Loading";
+import { NotfoundWishList } from "../../assets/images";
+import { Loading } from "../";
 
 import "./WishList.css";
 import ENDPOINT from "../../ENDPOINT";
@@ -114,7 +114,7 @@ export default function() {
           {currentUser.myWishList.length === 0 && (
             <div className="wishlist-handle">
               <p>Bạn chưa có WishList của riêng mình, thêm ngay?</p>
-              <img src={Notfound} alt="" />
+              <img src={NotfoundWishList} alt="" />
               <div className="wishlist-action">
                 <button
                   onClick={() => {

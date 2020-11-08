@@ -8,13 +8,12 @@ import GridLoader from "react-spinners/GridLoader";
 import { UserContext } from "../../contexts/UserContext";
 import { ChatContext } from "../../contexts/ChatContext";
 
-import ShowTime from "../../components/ShowTime/ShowTime";
-
-import { ReactComponent as Send } from "../../assets/images/send.svg";
-import ThankImg from "../../assets/images/thank.png";
+import { ShowTime } from "../../components";
+import { Send, Thank } from "../../assets/images";
 
 import ENDPOINT from "../../ENDPOINT";
 import { socket } from "../../services/socket";
+
 import "./Help.css";
 
 const { TextArea } = Input;
@@ -65,7 +64,7 @@ export default function () {
     <div className="help wrap-content">
       <div className="container">
         <div className="help-title">
-          <img className="help-img" src={ThankImg} alt="" />
+          <img className="help-img" src={Thank} alt="" />
           <h5>Để lại phản hồi, đánh giá cho chúng tôi.</h5>
         </div>
         <form onSubmit={onSubmit}>

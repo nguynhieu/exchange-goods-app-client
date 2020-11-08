@@ -8,7 +8,7 @@ import { ReactComponent as NotificationIcon } from "../../assets/images/notifica
 import { NotificationContext } from "../../contexts/Notification";
 import { UserContext } from "../../contexts/UserContext";
 
-import ShowTime from "../ShowTime/ShowTime";
+import { ShowTime } from "../";
 import ENDPOINT from "../../ENDPOINT";
 import "./Notification.css";
 

@@ -6,7 +6,7 @@ import { socket } from "../../services/socket";
 import { UserContext } from "../../contexts/UserContext";
 import { ExchangeContext } from "../../contexts/ExchangeContext";
 
-import ShowTime from "../ShowTime/ShowTime";
+import { ShowTime } from "../index";
 import ENDPOINT from "../../ENDPOINT";
 import "./Exchange.css";
 

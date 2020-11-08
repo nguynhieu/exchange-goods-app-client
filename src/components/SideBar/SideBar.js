@@ -7,7 +7,8 @@ import axios from "axios";
 import { UserContext } from "../../contexts/UserContext";
 import { PostContext } from "../../contexts/PostContext";
 
-import recommend from "../../assets/images/recommend.png";
+import { Recommend } from "../../assets/images";
+
 import "./SideBar.css";
 const { Panel } = Collapse;
 
@@ -67,7 +68,7 @@ const SideBar = () => {
           </Collapse>
         ))}
         <div className="time-line">
-          <img src={recommend} alt="" />
+          <img src={Recommend} alt="" />
           <Link to="/posts-history">Dòng thời gian</Link>
         </div>
       </div>

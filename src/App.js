@@ -8,41 +8,47 @@ import { PostContext, PostProvider } from "./contexts/PostContext";
 import { EffectContext, EffectProvider } from "./contexts/EffectApp";
 import { UserContext, UserProvider } from "./contexts/UserContext";
 import { ExchangeProvider, ExchangeContext } from "./contexts/ExchangeContext";
-import {
-  NotificationProvider,
-  NotificationContext
-} from "./contexts/Notification";
+import { NotificationProvider, NotificationContext } from "./contexts/Notification";
 import { ChatProvider, ChatContext } from "./contexts/ChatContext";
 
-import { socket, userLogin } from "./services/socket";
-import "./styles.css";
+import { 
+  socket, 
+  userLogin, 
+  updateUserSocket, 
+  handleLikeSocket, 
+  handleCommentSocket, 
+  handleNotiSocket,
+  handleChangeDataSocket,
+  handleExchangeSocket,
+  handleChatSocket
+} from "./services/socket";
 
-import PublicRoute from "./routes/PublicRoute";
-import PrivateRoute from "./routes/PrivateRoute";
-import CreatePost from "./components/CreatePost/CreatePost";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import Swiper from "./components/ImgSlide/ImgSlide";
+import { 
+  Home, 
+  Login, 
+  Signup, 
+  ProfileUser, 
+  ExchangeProposal, 
+  ExchangeProposalSent, 
+  ManagerTransaction, 
+  TransactionHistory, 
+  Guide,
+  Help,
+  Event,
+  Gift, 
+  About,
+  PostToday
+} from './pages'
 
-import Home from "./pages/Home/Home";
-import Login from "./pages/Login/Login";
-import Signup from "./pages/Signup/Signup";
-import ProfileUser from "./pages/ProfileUser/ProfileUser";
-import ExchangeProposal from "./pages/ExchangeProposal/ExchangeProposal";
-import ExchangeProposalSent from "./pages/ExchangeProposalSent/ExchangeProposalSent";
-import ManagerTransaction from "./pages/ManagerTransaction/ManagerTransaction";
-import TransactionHistory from "./pages/TransactionHistory/TransactionHistory";
-import Guide from "./pages/Guide/Guide";
-import Help from "./pages/Help/Help";
-import Event from "./pages/Event/Event";
-import Gift from "./pages/Gift/Gift";
-import About from "./pages/About/About";
+import { PublicRoute, PrivateRoute} from "./routes";
+
+import { CreatePost, Footer, Header, Swiper } from './components'
 
 import { ReactComponent as Closer } from "./assets/images/close.svg";
 
+import "./styles.css";
 import "antd/dist/antd.css";
 import "react-toastify/dist/ReactToastify.css";
-import PostToday from "./pages/PostToday/PostToday";
 
 function AppWrapper() {
   return (
@@ -105,20 +111,13 @@ function App() {
   }, [currentUser]);
 
   useEffect(() => {
-    socket.on("server-send-like", (data) => setNewPosts(data.post, data.index));
-    socket.on("server-send-comment", (data) =>
-      setNewPosts(data.post, data.index)
-    );
-    socket.on("server-send-notification", (data) => setNewNotification(data));
-    socket.on("server-exchange-data", (data) => {setIsNewExchange(true); setExchangeList(data)});
-    if (currentUser) {
-      socket.emit("client-update-user", currentUser.username);
-    }
-    socket.on("server-accept-exchange", (data) => {
-      setIsNewExchangeAccept(true);
-      notifyAccept(data);
-    });
-    socket.on("server-send-chat", (data) => setChatList(data));
+    handleLikeSocket(setNewPosts);
+    handleCommentSocket(setNewPosts);
+    handleNotiSocket(setNewNotification);
+    handleChangeDataSocket(setIsNewExchange, setExchangeList);
+    updateUserSocket(currentUser);
+    handleExchangeSocket(setIsNewExchangeAccept, notifyAccept);
+    handleChatSocket(setChatList);
   }, [setNewPosts, setNewNotification, currentUser, setChatList]);
 
   return (
