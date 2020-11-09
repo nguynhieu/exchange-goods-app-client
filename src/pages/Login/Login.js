@@ -4,13 +4,13 @@ import axios from "axios";
 import classNames from "classnames";
 import PulseLoader from "react-spinners/PulseLoader";
 
-import ENDPOINT from "../../ENDPOINT.js";
-
 import { Recommend, Background, Welcome, Warning }  from "../../assets/images";
 
 import { UserContext } from "../../contexts/UserContext";
 import { userLogin } from '../../services/socket'
+import userApi from '../../apis/userApi';
 import "./Login.css";
+import ENDPOINT from "../../ENDPOINT.js";
 
 const Login = () => {
   const { setCurrentUser } = useContext(UserContext);
@@ -21,31 +21,25 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isLogined, setIsLogined] = useState(false);
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
     setIsLoading(true);
+
     try {
-      axios
-        .post(`${ENDPOINT}auth/login`, {
-          email,
-          password
-        })
-        .then(res => {
-          const { auth } = res.data;
-          axios.defaults.headers.common["x-access-token"] = auth.token;
-          setCurrentUser(auth.user);
-          localStorage.setItem("auth", JSON.stringify(auth));
-          setIsLoading(false);
-          setIsLogined(true);
-          userLogin();
-        })
-        .catch(err => {
-          setIsLoading(false);
-          setError(err.response.data);
-        });
-    } catch (err) {
-      console.log(err);
-    }
+      const { data } = await userApi.login({ email, password });
+      const auth = data.auth
+
+      axios.defaults.headers.common["x-access-token"] = auth.token;
+      setCurrentUser(auth.user);
+      localStorage.setItem("auth", JSON.stringify(auth));
+      setIsLoading(false);
+      setIsLogined(true);
+      userLogin();
+
+    } catch(err)  {
+      setIsLoading(false);
+      setError(err.response.data);
+    };
   };
 
   const auth = localStorage.getItem("auth");

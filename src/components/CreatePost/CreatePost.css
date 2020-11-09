@@ -136,6 +136,7 @@ div.ant-select {
 
 .ant-select-dropdown.ant-select-dropdown-placement-bottomLeft {
   z-index: 1200;
+  position: fixed;
 }
 
 span.ant-upload-picture-card-wrapper {

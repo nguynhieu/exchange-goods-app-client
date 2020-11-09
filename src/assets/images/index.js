@@ -3,7 +3,7 @@ import { ReactComponent as Address } from './address.svg';
 import { ReactComponent as Administrator } from './administrator.svg';
 import AvatarDefault from './avatar-default.png';
 import { ReactComponent as BackgroundRepeat } from './background-repeat.jpg';
-import { ReactComponent as Background } from './bgr.png';
+import Background from './bgr.png';
 import { ReactComponent as Closer } from './close.svg';
 import { ReactComponent as Comment } from './comment.svg';
 import { ReactComponent as Delete } from './delete.svg';
