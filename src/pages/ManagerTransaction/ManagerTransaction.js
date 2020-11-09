@@ -9,7 +9,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { ChatContext } from "../../contexts/ChatContext";
 
 import { ShowTime } from "../../components";
-import { Transaction, Helper } from "../../assets/images/transaction.png";
+import { Transaction, Help } from "../../assets/images";
 
 import ENDPOINT from "../../ENDPOINT";
 import "./ManagerTransaction.css";
@@ -123,7 +123,7 @@ export default function () {
               </Link>
               <Link to="/manager-transactions/help" onClick={setReadChat}>
                 <div className="manager-body-cart">
-                  <img src={Helper} alt="" />
+                  <img src={Help} alt="" />
                   <div className="manager-cart-content helper">
                     <div className="manager-cart-content-wrap">
                       <div className="manager-cart-blur"></div>

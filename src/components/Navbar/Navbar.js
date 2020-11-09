@@ -10,19 +10,7 @@ import { ExchangeContext } from "../../contexts/ExchangeContext";
 
 import { userLogout } from "../../services/socket";
 
-import { ReactComponent as Closer } from "../../assets/images/close.svg";
-import { ReactComponent as WishList } from "../../assets/images/wishlist.svg";
-import { ReactComponent as Exchange } from "../../assets/images/exchange-icon.svg";
-import { ReactComponent as Request } from "../../assets/images/request.svg";
-import { ReactComponent as Address } from "../../assets/images/address.svg";
-import { ReactComponent as Gmail } from "../../assets/images/gmail.svg";
-import { ReactComponent as Phone } from "../../assets/images/phone.svg";
-import { ReactComponent as Post } from "../../assets/images/post.svg";
-import { ReactComponent as History } from "../../assets/images/history.svg";
-import { ReactComponent as Help } from "../../assets/images/help.svg";
-import { ReactComponent as Guide } from "../../assets/images/guide.svg";
-import { ReactComponent as Manager } from "../../assets/images/administrator.svg";
-import { Notfind }from "../../assets/images";
+import { Closer, WishList, Exchange, Request, Address, Gmail, Phone, Post, History, Help, Guide, Manager, Notfind } from "../../assets/images";
 
 import { MyWishList, Logo } from '../';
 

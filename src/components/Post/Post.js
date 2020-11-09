@@ -4,11 +4,7 @@ import { Tooltip, Modal, Select, Input } from "antd";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import { ReactComponent as Heart } from "../../assets/images/heart.svg";
-import { ReactComponent as Exchange } from "../../assets/images/exchange.svg";
-import { ReactComponent as Comment } from "../../assets/images/comment.svg";
-import { ReactComponent as Love } from "../../assets/images/love.svg";
-import { ReactComponent as Send } from "../../assets/images/send.svg";
+import { Heart, Exchange, Comment, Love, Send } from "../../assets/images";
 
 import { EffectContext } from "../../contexts/EffectApp";
 import { PostContext } from "../../contexts/PostContext";

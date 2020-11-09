@@ -2,9 +2,8 @@ import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import classNames from "classnames";
 
-import { ReactComponent as Search } from "../../assets/images/search.svg";
-import { ReactComponent as Close } from "../../assets/images/close.svg";
-import { ReactComponent as SearchImg } from "../../assets/images/search.svg";
+import { Search, Closer } from "../../assets/images";
+
 import { EffectContext } from "../../contexts/EffectApp";
 import { PostContext } from "../../contexts/PostContext";
 
@@ -41,10 +40,10 @@ export default function () {
             onChange={(e) => setInputValue(e.target.value)}
           />
           {inputValue.length === 0 && (
-            <Close onClick={() => handleShowInputXS()} />
+            <Closer onClick={() => handleShowInputXS()} />
           )}
           {inputValue.length > 0 && (
-            <SearchImg onClick={() => handleShowInputXS()} />
+            <Search onClick={() => handleShowInputXS()} />
           )}
         </div>
         <input

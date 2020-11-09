@@ -1,42 +1,87 @@
-export { default as About } from './about.jpg';
-export { default as Address } from './address.svg';
-export { default as Administrator } from './administrator.svg';
-export { default as AvatarDefault } from './avatar-default.png';
-export { default as BackgroundRepeat } from './background-repeat.jpg';
-export { default as Background } from './bgr.png';
-export { default as Closer } from './close.svg';
-export { default as Comment } from './comment.svg';
-export { default as ExchangeIcon } from './exchange-icon.svg';
-export { default as Exchange } from './exchange.svg';
-export { default as Gmail } from './gmail.svg';
-export { default as Guide } from './guide.svg';
-export { default as Heart } from './heart.svg';
-export { default as Help } from './help.svg';
-export { default as Helper } from './helper.png';
-export { default as History } from './history.svg';
-export { default as Logo } from './logo.png';
-export { default as Logout } from './logout.svg';
-export { default as Love } from './love.svg';
-export { default as Manager } from './manager.svg';
-export { default as Navbar } from './navbar-img.png';
-export { default as Notfind } from './notfind.png';
-export { default as Notfind2 } from './notfind2.png';
-export { default as NotfoundWishList } from './notfound-wishlist.png';
-export { default as Notfound } from './notfound.png';
-export { default as Notification } from './notification.svg';
-export { default as OpenMenu } from './open-menu.svg';
-export { default as Phone } from './phone.svg';
-export { default as Plus } from './plus.svg';
-export { default as Post } from './post.svg';
-export { default as Recommend } from './recommend.png';
-export { default as Request } from './request.svg';
-export { default as Search } from './search.svg';
-export { default as Send } from './send.svg';
-export { default as Thank } from './thank.png';
-export { default as Transaction } from './transaction.png';
-export { default as User } from './user.svg';
-export { default as Warning } from './warning.svg';
-export { default as Welcome } from './welcome.png';
-export { default as Wind } from './wind-icon.png';
-export { default as WishList } from './wishlist.svg';
+import About from './about.jpg';
+import { ReactComponent as Address } from './address.svg';
+import { ReactComponent as Administrator } from './administrator.svg';
+import AvatarDefault from './avatar-default.png';
+import { ReactComponent as BackgroundRepeat } from './background-repeat.jpg';
+import { ReactComponent as Background } from './bgr.png';
+import { ReactComponent as Closer } from './close.svg';
+import { ReactComponent as Comment } from './comment.svg';
+import { ReactComponent as Delete } from './delete.svg';
+import { ReactComponent as ExchangeIcon } from './exchange-icon.svg';
+import { ReactComponent as Exchange } from './exchange.svg';
+import { ReactComponent as Gmail } from './gmail.svg';
+import { ReactComponent as Guide } from './guide.svg';
+import { ReactComponent as Heart } from './heart.svg';
+import { ReactComponent as Help } from './help.svg';
+import Helper from './helper.png';
+import { ReactComponent as History } from './history.svg';
+import Logo from './logo.png';
+import { ReactComponent as Logout } from './logout.svg';
+import { ReactComponent as Love } from './love.svg';
+import { ReactComponent as Manager } from './manager.svg';
+import Navbar from './navbar-img.png';
+import Notfind from './notfind.png';
+import Notfind2 from './notfind2.png';
+import NotfoundWishList from './notfound-wishlist.png';
+import Notfound from './notfound.png';
+import { ReactComponent as Notification } from './notification.svg';
+import { ReactComponent as OpenMenu } from './open-menu.svg';
+import { ReactComponent as Phone } from './phone.svg';
+import { ReactComponent as Plus } from './plus.svg';
+import { ReactComponent as Post } from './post.svg';
+import Recommend from './recommend.png';
+import { ReactComponent as Request } from './request.svg';
+import { ReactComponent as Search } from './search.svg';
+import { ReactComponent as Send } from './send.svg';
+import Thank from './thank.png';
+import Transaction from './transaction.png';
+import { ReactComponent as User } from './user.svg';
+import { ReactComponent as Warning } from './warning.svg';
+import Welcome from './welcome.png';
+import Wind from './wind-icon.png';
+import { ReactComponent as WishList } from './wishlist.svg';
 
+export {
+  About, 
+  Address, 
+  Administrator, 
+  AvatarDefault, 
+  BackgroundRepeat, 
+  Background, 
+  Closer, 
+  Comment, 
+  Delete, 
+  ExchangeIcon, 
+  Exchange, 
+  Gmail, 
+  Guide, 
+  Heart, 
+  Help, 
+  Helper, 
+  History, 
+  Logo, 
+  Logout, 
+  Love, 
+  Manager, 
+  Navbar, 
+  Notfind, 
+  Notfind2, 
+  NotfoundWishList, 
+  Notfound, 
+  Notification, 
+  OpenMenu, 
+  Phone, 
+  Plus, 
+  Post, 
+  Recommend, 
+  Request, 
+  Search, 
+  Send, 
+  Thank, 
+  Transaction, 
+  User, 
+  Warning, 
+  Welcome, 
+  Wind, 
+  WishList
+}

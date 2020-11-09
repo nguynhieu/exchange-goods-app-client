@@ -1,10 +1,7 @@
 import React from "react";
 
-import { ReactComponent as Address } from "../../assets/images/address.svg";
-import { ReactComponent as Gmail } from "../../assets/images/gmail.svg";
-import { ReactComponent as Phone } from "../../assets/images/phone.svg";
+import { Address, Gmail, Phone, Logo } from "../../assets/images";
 
-import Logo from "../../assets/images/logo.png";
 import "./Footer.css";
 
 const Footer = () => {

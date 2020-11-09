@@ -109,7 +109,7 @@ function App() {
   return (
     <Router>
       <div className="app">
-        {error && notifyErr(error)}
+        {error && notifyErr(error, setErr)}
         {isNewExchange && notify(setIsNewExchange)}
         <ToastContainer />
         {isShowLayer && <div

@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Menu, Dropdown, Button, Badge } from "antd";
 
-import { ReactComponent as NotificationIcon } from "../../assets/images/notification.svg";
+import { Notification } from "../../assets/images";
 
 import { NotificationContext } from "../../contexts/Notification";
 import { UserContext } from "../../contexts/UserContext";
@@ -12,7 +12,7 @@ import { ShowTime } from "../";
 import ENDPOINT from "../../ENDPOINT";
 import "./Notification.css";
 
-const Notification = () => {
+export default function() {
   const { notifications, setNewNotification } = useContext(NotificationContext);
   const { currentUser, setErr } = useContext(UserContext);
 
@@ -60,14 +60,13 @@ const Notification = () => {
         <Button onClick={() => onClick()}>
           {unreadNotifications.length > 0 && (
             <Badge dot>
-              <NotificationIcon />
+              <Notification />
             </Badge>
           )}
-          {unreadNotifications.length === 0 && <NotificationIcon />}
+          {unreadNotifications.length === 0 && <Notification />}
         </Button>
       </Dropdown>
     </div>
   );
 };
 
-export default Notification;

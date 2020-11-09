@@ -5,7 +5,7 @@ import axios from "axios";
 import PulseLoader from "react-spinners/PulseLoader";
 import Swal from "sweetalert2";
 
-import { Warning, Recommend, Background } from "../../assets/images/bgr.png";
+import { Warning, Recommend, Background } from "../../assets/images";
 import ENDPOINT from "../../ENDPOINT.js";
 
 import "./Signup.css";

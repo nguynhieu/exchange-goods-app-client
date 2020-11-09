@@ -1,12 +1,12 @@
 import React from "react";
 
-import NotfoundImg from "../../assets/images/notfound.png";
+import { Notfound } from "../../assets/images";
 
 export default function () {
   return (
     <div
       className="page-notfound"
-      style={{ backgroundImage: `url(${NotfoundImg})` }}
+      style={{ backgroundImage: `url(${Notfound})` }}
     ></div>
   );
 }

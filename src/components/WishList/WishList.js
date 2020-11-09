@@ -5,9 +5,8 @@ import axios from "axios";
 
 import { UserContext } from "../../contexts/UserContext";
 import { EffectContext } from "../../contexts/EffectApp";
-import { ReactComponent as Plus } from "../../assets/images/plus.svg";
-import { ReactComponent as Delete } from "../../assets/images/delete.svg";
-import { NotfoundWishList } from "../../assets/images";
+
+import { Plus, Delete, NotfoundWishList } from "../../assets/images";
 import { Loading } from "../";
 
 import "./WishList.css";

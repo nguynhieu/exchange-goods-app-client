@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./Guide.css";
 
-import { Postb1, Postb2, Postb3, ExchangeB1, ExchangeB2 }from "../../assets/imagesGuide";
+import { Postb1, Postb2, Postb3, ExchangeB1, ExchangeB2 } from "../../assets/imagesGuide";
 
 export default function () {
   return (
