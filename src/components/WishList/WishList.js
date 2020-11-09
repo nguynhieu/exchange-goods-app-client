@@ -198,7 +198,7 @@ export default function() {
                 Lưu
               </button>
               <button
-                onClick={() => onClickToAddWishList()}
+                onClick={onClickToAddWishList}
               >
                 Hủy
               </button>

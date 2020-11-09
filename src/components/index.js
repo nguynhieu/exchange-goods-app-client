@@ -17,3 +17,4 @@ export { default as Search } from './Search/Search';
 export { default as ShowTime } from './ShowTime/ShowTime';
 export { default as SideBar } from './SideBar/SideBar';
 export { default as MyWishList } from './WishList/WishList';
+export { notify as notify, notifyAccept as notifyAccept, notifyErr as notifyErr } from './Toastify/Toastify';

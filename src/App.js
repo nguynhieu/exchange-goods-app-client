@@ -42,7 +42,7 @@ import {
 
 import { PublicRoute, PrivateRoute} from "./routes";
 
-import { CreatePost, Footer, Header, Swiper } from './components'
+import { CreatePost, Footer, Header, Swiper, notify, notifyAccept, notifyErr } from './components'
 
 import { ReactComponent as Closer } from "./assets/images/close.svg";
 
@@ -80,6 +80,7 @@ function App() {
     handleShowLayerWhite,
     handleShowLayerWishlist
   } = useContext(EffectContext);
+
   const { currentUser, error, setErr } = useContext(UserContext);
   const { setDefaultSwiperData, setNewPosts } = useContext(PostContext);
   const { setNewNotification } = useContext(NotificationContext);
@@ -88,21 +89,6 @@ function App() {
 
   const [isNewExchange, setIsNewExchange] = useState(false);
   const [isNewExchangeAccept, setIsNewExchangeAccept] = useState(false);
-
-  const notifyErr = () => {
-    toast.error(error);
-    setErr(null);
-  };
-
-  const notify = () => {
-    toast.info("Bạn có 1 đề xuất trao đổi mới");
-    setIsNewExchange(false);
-  };
-
-  const notifyAccept = (data) => {
-    toast.success(`${data.viewer} đã chấp nhận yêu cầu trao đổi của bạn`);
-    setIsNewExchangeAccept(false);
-  };
 
   useEffect(() => {
     if (currentUser) {
@@ -123,40 +109,31 @@ function App() {
   return (
     <Router>
       <div className="app">
-        {error && notifyErr()}
-        {isNewExchange && notify()}
+        {error && notifyErr(error)}
+        {isNewExchange && notify(setIsNewExchange)}
         <ToastContainer />
-        <div
+        {isShowLayer && <div
+          className="layer"
           onClick={() => {
             if (isShowLayer) {
               handleShowLayer();
             } else handleShowNavbar();
           }}
-          className={classNames({
-            layer: true,
-            show: isShowLayer || isShowNavbar
-          })}
-        />
-        <div
+        />}
+        {isShowLayerWhite && <div
+          className="layer-white"
           onClick={() => {
             handleShowLayerWhite();
             setDefaultSwiperData();
           }}
-          className={classNames({
-            "layer-white": true,
-            show: isShowLayerWhite
-          })}
-        />
-        <div
+        />}
+        {isShowLayerWishlist && <div
+          className="layer-2"
           onClick={() => {
             handleShowLayerWishlist();
             handleShowWishlist(false, false);
           }}
-          className={classNames({
-            "layer-2": true,
-            show: isShowLayerWishlist
-          })}
-        />
+        />}
 
         <div className="closer-layer-white">
           {isShowLayerWhite && (

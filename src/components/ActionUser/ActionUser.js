@@ -6,7 +6,13 @@ import { UserContext } from "../../contexts/UserContext";
 import { EffectContext } from "../../contexts/EffectApp";
 import { ExchangeContext } from "../../contexts/ExchangeContext";
 
-import { WishList, Logout, User, Exchange, Request, History, Manager } from "../../assets/images";
+import { ReactComponent as WishList } from "../../assets/images/wishlist.svg";
+import { ReactComponent as Logout } from "../../assets/images/logout.svg";
+import { ReactComponent as User } from "../../assets/images/user.svg";
+import { ReactComponent as Exchange } from "../../assets/images/exchange.svg";
+import { ReactComponent as Request } from "../../assets/images/request.svg";
+import { ReactComponent as History } from "../../assets/images/history.svg";
+import { ReactComponent as Manager } from "../../assets/images/manager.svg";
 
 import Notification from "../Notification/Notification";
 import { userLogout } from "../../services/socket";
