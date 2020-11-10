@@ -1,7 +1,6 @@
 import React from "react";
-import axios from "axios";
 
-import ENDPOINT from "../ENDPOINT";
+import { chatApi } from '../apis';
 
 export const ChatContext = React.createContext();
 
@@ -30,17 +29,18 @@ export class ChatProvider extends React.Component {
   }
 
   componentDidMount() {
-    axios
-      .get(`${ENDPOINT}api/chats`)
-      .then((res) => {
+    const getData = async () => {
+      try {
+        const data = await chatApi.getChat();
         this.setState({
-          chats: res.data.chat,
+          chats: data.data.chat,
           isLoaded: true
         });
-      })
-      .catch((err) => {
+      } catch (err) {
         console.log(err.response.data);
-      });
+      }
+    } 
+    getData();
   }
 
   render() {

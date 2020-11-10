@@ -1,7 +1,6 @@
 import React from "react";
-import axios from "axios";
 
-import ENDPOINT from "../ENDPOINT";
+import { postApi } from '../apis';
 
 export const ExchangeContext = React.createContext();
 
@@ -30,17 +29,19 @@ export class ExchangeProvider extends React.Component {
   }
 
   componentDidMount() {
-    axios
-      .get(`${ENDPOINT}exchanges`)
-      .then((res) => {
+    const loadData = async () => {
+      try {
+        const data = await postApi.exchange()
         this.setState({
-          exchanges: res.data.exchanges,
+          exchanges: data.data.exchanges,
           isLoaded: true
         });
-      })
-      .catch((err) => {
+      } catch(err) {
         console.log(err.response.data);
-      });
+
+      }
+    }
+    loadData();
   }
 
   render() {

@@ -1,7 +1,6 @@
 import React from "react";
-import axios from "axios";
 
-import ENDPOINT from "../ENDPOINT";
+import { postApi } from '../apis';
 
 export const PostContext = React.createContext();
 
@@ -82,16 +81,19 @@ export class PostProvider extends React.Component {
   }
 
   componentDidMount() {
-    axios
-      .get(`${ENDPOINT}api/posts`)
-      .then((res) => {
+    const getData = async () => {
+      try {
+        const data = await postApi.getPosts();
         this.setState({
-          allPost: res.data,
-          posts: res.data,
+          allPost: data.data,
+          posts: data.data,
           isLoaded: true
         });
-      })
-      .catch((err) => console.log(err));
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getData();
   }
 
   render() {

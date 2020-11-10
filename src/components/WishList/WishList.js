@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
 import classNames from "classnames";
-import axios from "axios";
+
+import { wishlistApi } from '../../apis';
 
 import { UserContext } from "../../contexts/UserContext";
 import { EffectContext } from "../../contexts/EffectApp";
@@ -10,7 +11,6 @@ import { Plus, Delete, NotfoundWishList } from "../../assets/images";
 import { Loading } from "../";
 
 import "./WishList.css";
-import ENDPOINT from "../../ENDPOINT";
 
 export default function() {
   const { currentUser, setErr, setCurrentUser } = useContext(UserContext);
@@ -37,40 +37,39 @@ export default function() {
     ]);
   };
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     setIsLoadedData(false);
-    axios
-      .post(`${ENDPOINT}users/add-wishlist`, {
+
+    try {
+      const data = await wishlistApi.addWishlish({
         wishlist: goodsListToAdd,
         user: currentUser
-      })
-      .then(res => {
-        setCurrentUser(res.data.userAfterAdd);
-        setGoodsContentInput([]);
-        handleShowWishlist(true, false);
-        setIsLoadedData(true);
-      })
-      .catch(err => {
-        setErr(err);
-        handleShowWishlist(false, false);
       });
+      setCurrentUser(data.data.userAfterAdd);
+      setGoodsContentInput([]);
+      handleShowWishlist(true, false);
+      setIsLoadedData(true);
+
+    } catch (err) {
+      setErr(err);
+      handleShowWishlist(false, false);
+    }
   };
 
-  const deleteItemOfWishList = index => {
+  const deleteItemOfWishList = async index => {
     //get data after delete
     const currentWishList = currentUser.myWishList;
     currentWishList.splice(index, 1);
-
-    axios
-      .post(`${ENDPOINT}users/deleteItem`, {
+    try {
+      const data = await wishlistApi.removeItem({
         wishlist: currentWishList,
         user: currentUser
       })
-      .then(res => setCurrentUser(res.data.userAfterUpdate))
-      .catch(err => {
-        setErr(err);
-        handleShowWishlist(false, false);
-      });
+      setCurrentUser(data.data.userAfterUpdate)
+    } catch (err) {
+      setErr(err);
+      handleShowWishlist(false, false);
+    }
   };
 
   const onClickToAddWishList = (e) => {

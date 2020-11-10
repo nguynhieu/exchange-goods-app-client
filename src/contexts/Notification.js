@@ -1,7 +1,6 @@
 import React from "react";
-import axios from "axios";
 
-import ENDPOINT from "../ENDPOINT";
+import { notificationApi } from '../apis';
 
 export const NotificationContext = React.createContext();
 
@@ -22,16 +21,17 @@ export class NotificationProvider extends React.Component {
   }
 
   componentDidMount() {
-    axios
-      .get(`${ENDPOINT}api/notifications`)
-      .then(res =>
+    const getData = async () => {
+      try {
+        const data = await notificationApi.getNotifications();
         this.setState({
-          notifications: res.data.notifications
+          notifications: data.data.notifications
         })
-      )
-      .catch(err => {
+      } catch (err) {
         console.log(err);
-      });
+      }
+    }
+    getData();
   }
 
   render() {
