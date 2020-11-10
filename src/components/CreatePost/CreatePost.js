@@ -10,6 +10,7 @@ import { EffectContext } from "../../contexts/EffectApp";
 import { UserContext } from "../../contexts/UserContext";
 import { PostContext } from "../../contexts/PostContext";
 import { Closer } from "../../assets/images";
+
 import "./CreatePost.css";
 
 const { TextArea } = Input;

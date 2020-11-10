@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
-import axios from "axios";
 import GridLoader from "react-spinners/GridLoader";
 import { Route, Link, useLocation, Redirect } from "react-router-dom";
 import { Modal, Input } from "antd";
+
+import { chatApi, adminApi } from '../../apis';
 
 import { ExchangeContext } from "../../contexts/ExchangeContext";
 import { UserContext } from "../../contexts/UserContext";
@@ -11,7 +12,6 @@ import { ChatContext } from "../../contexts/ChatContext";
 import { ShowTime } from "../../components";
 import { Transaction, Help } from "../../assets/images";
 
-import ENDPOINT from "../../ENDPOINT";
 import "./ManagerTransaction.css";
 
 export default function () {
@@ -43,29 +43,33 @@ export default function () {
     setLoaded(true);
   }, [exchanges]);
 
-  const setReadChat = () => {
-    axios
-      .post(`${ENDPOINT}chats/setReadChat`)
-      .then((res) => updateChat(res.data.chats))
-      .catch((err) => setErr(err.response.data));
+  const setReadChat = async () => {
+    try {
+      const data = await chatApi.setReadChat();
+      updateChat(data.data.chats)
+    } catch (err) {
+      setErr(err.response.data);
+    }
   };
 
   const showModal = () => {
     setVisible(true);
   };
 
-  const handleOk = (exchangeData) => {
+  const handleOk = async (exchangeData) => {
     setConfirmLoading(true);
-
-    axios
-      .post(`${ENDPOINT}exchanges/admin-decline`, {
+    try {
+      const data = await adminApi.adminDecline({
         reasonCancel,
         exchangeData
-      })
-      .then((res) => {
-        updateExchange(res.data.exchanges);
-        setConfirmLoading(false);
       });
+
+      updateExchange(data.exchanges);
+      setConfirmLoading(false);
+    } catch (err) {
+      setErr(err.response.data);
+    }
+    
     setVisible(false);
   };
 
@@ -74,13 +78,13 @@ export default function () {
     setReasonCancel("");
   };
 
-  const adminAccept = (exchangeData) => {
-    axios
-      .post(`${ENDPOINT}exchanges/admin-accept`, { exchangeData })
-      .then((res) => {
-        updateExchange(res.data.exchanges);
-      })
-      .catch((err) => setErr(err.response.data));
+  const adminAccept = async (exchangeData) => {
+    try {
+      const data = await adminApi.adminAccept({ exchangeData });
+      updateExchange(data.data.exchanges);
+    } catch (err) {
+      setErr(err.response.data)
+    }
   };
 
   if (currentUser && currentUser.isAdmin === false) {

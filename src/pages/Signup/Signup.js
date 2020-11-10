@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import classNames from "classnames";
-import axios from "axios";
 import PulseLoader from "react-spinners/PulseLoader";
 import Swal from "sweetalert2";
+
+import { userApi } from '../../apis';
 
 import { Warning, Recommend, Background } from "../../assets/images";
 import ENDPOINT from "../../ENDPOINT.js";
@@ -33,27 +34,27 @@ const Signup = () => {
     } else setShowBtn(false);
   }, [username, password, email, phone, address]);
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
     setIsLoading(true);
-    axios
-      .post(`${ENDPOINT}auth/register`, {
+
+    try {
+      const data = await userApi.signup({
         username,
         password,
         email,
         phone,
         address
-      })
-      .then(res => {
-        setError("");
-        setIsLoading(false);
-        Swal.fire("Đăng kí thành công!", "Mời bạn đăng nhập", "success");
-        setIsRegistered(true);
-      })
-      .catch(err => {
-        setError(err.response.data);
-        setIsLoading(false);
       });
+      setError("");
+      setIsLoading(false);
+      Swal.fire("Đăng kí thành công!", "Mời bạn đăng nhập", "success");
+      setIsRegistered(true);
+    } catch (err) {
+      console.log(err);
+      setError(err.response.data);
+      setIsLoading(false);
+    } 
   };
 
   if (isRegistered === true) {
