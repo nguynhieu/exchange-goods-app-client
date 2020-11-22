@@ -2,8 +2,9 @@ import React, { useState, useContext } from "react";
 import classNames from "classnames";
 import { Upload, Select, Input } from "antd";
 import ImgCrop from "antd-img-crop";
-import axios from "axios";
 import PulseLoader from "react-spinners/PulseLoader";
+
+import { postApi } from '../../apis/postApi';
 
 import ENDPOINT from "../../ENDPOINT";
 import { EffectContext } from "../../contexts/EffectApp";
@@ -60,22 +61,20 @@ const CreatePost = () => {
     data.append("address", address);
     fileUrls.forEach((file) => data.append("files", file));
 
-    axios
-      .post(`${ENDPOINT}posts`, data)
-      .then((res) => {
-        handlePost(res.data.newPost);
-        setAddress("");
-        setWaitingPosted(false);
-        setContent("");
-        setFileList([]);
-        setTypeGoods(null);
-        handleShowLayer();
-      })
-      .catch((err) => {
+    try {
+      const data = postApi.createPost(data);
+      handlePost(data.data.newPost);
+      setAddress("");
+      setWaitingPosted(false);
+      setContent("");
+      setFileList([]);
+      setTypeGoods(null);
+      handleShowLayer();
+    } catch(err) {
         setErr(err.response.data);
         setWaitingPosted(false);
         handleShowLayer();
-      });
+      };
   };
 
   const onPreview = async (file) => {

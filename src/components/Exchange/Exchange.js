@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
-import axios from "axios";
 import { Modal, Input } from "antd";
+
 import { socket } from "../../services/socket";
+import { adminApi } from '../../apis/adminApi';
 
 import { UserContext } from "../../contexts/UserContext";
 import { ExchangeContext } from "../../contexts/ExchangeContext";
@@ -41,33 +42,33 @@ export default function ({ exchange }) {
 
   const handleDecline = () => {
     setConfirmLoading(true);
-    axios
-      .post(`${ENDPOINT}exchanges/decline-exchange`, {
+    try {
+      const data = adminApi.adminDecline({
         exchangeData: exchange
-      })
-      .then((res) => {
-        updateExchange(res.data.exchanges);
-        setNotifydecline(false);
-        setConfirmLoading(false);
-      })
-      .catch((err) => setErr(err.response.data));
+      });
+      updateExchange(data.data.exchanges);
+      setNotifydecline(false);
+      setConfirmLoading(false);
+    } catch(err) {
+      setErr(err.response.data);
+    }
   };
 
   const handleOkAccept = () => {
     setConfirmLoading(true);
-    axios
-      .post(`${ENDPOINT}exchanges/accept-exchange`, {
+    try {
+      adminApi.adminAccept({
         exchangeData: exchange,
         addressViewer: address
-      })
-      .then((res) => {
-        socket.emit("user-accept-exchange", { viewer, sender });
-        updateExchange(res.data.exchanges);
-        setVisibleAccept(false);
-        setConfirmLoading(false);
-        setNotifySuccess(true);
-      })
-      .catch((err) => setErr(err.response.data));
+      });
+      socket.emit("user-accept-exchange", { viewer, sender });
+      updateExchange(res.data.exchanges);
+      setVisibleAccept(false);
+      setConfirmLoading(false);
+      setNotifySuccess(true);
+    } catch(err) {
+      setErr(err.response.data)
+    }
   };
 
   const handleCancel = (visibleAccept, notifySuccess, notifyDecline) => {
