@@ -70,3 +70,42 @@ export const tourList = [
     availableSlots: 19
   }
 ]
+
+export const billList = [
+  {
+    id: '1',
+    tourId: '1',
+    userId: '1',
+    slot: 1,
+    cost: 3150000,
+    status: 'pending',
+    createAt: '2022-04-18T08:37:37.441Z'
+  },
+  {
+    id: '2',
+    tourId: '1',
+    userId: '1',
+    slot: 1,
+    cost: 3150000,
+    status: 'success',
+    createAt: '2022-04-18T08:37:37.441Z'
+  },
+  {
+    id: '3',
+    tourId: '2',
+    userId: '1',
+    slot: 1,
+    cost: 3150000,
+    status: 'success',
+    createAt: '2022-04-18T08:37:37.441Z'
+  },
+  {
+    id: '4',
+    tourId: '3',
+    userId: '1',
+    slot: 1,
+    cost: 3150000,
+    status: 'pending',
+    createAt: '2022-04-18T08:37:37.441Z'
+  }
+]

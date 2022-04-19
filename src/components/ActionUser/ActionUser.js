@@ -48,19 +48,9 @@ const SiteAction = () => {
         </Link>
       </Menu.Item>
       <Menu.Item>
-        <Link to="/exchange-proposal-sent">
-          <Request />
-          <span>Các đề nghị trao đổi đã gửi</span>
-          {!isLoaded && <span class="badge badge-dark ml-1">loading</span>}
-          {exchangeSent.length >= 0 && (
-            <span class="badge badge-dark ml-1">{exchangeSent.length}</span>
-          )}
-        </Link>
-      </Menu.Item>
-      <Menu.Item>
         <Link to="/transactions-history">
           <History />
-          <span>Lịch sử giao dịch</span>
+          <span>Lịch sử đặt tour</span>
         </Link>
       </Menu.Item>
       <Menu.Item>
