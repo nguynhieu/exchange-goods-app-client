@@ -1,62 +1,72 @@
-import React, { useContext } from "react";
-import classNames from "classnames";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import React, { useContext } from 'react'
+import classNames from 'classnames'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
-import { EffectContext } from "../../contexts/EffectApp";
-import { UserContext } from "../../contexts/UserContext";
-import { PostContext } from "../../contexts/PostContext";
-import { ExchangeContext } from "../../contexts/ExchangeContext";
+import { EffectContext } from '../../contexts/EffectApp'
+import { UserContext } from '../../contexts/UserContext'
+import { PostContext } from '../../contexts/PostContext'
+import { ExchangeContext } from '../../contexts/ExchangeContext'
 
-import { userLogout } from "../../services/socket";
+import { userLogout } from '../../services/socket'
 
-import { Closer, WishList, Exchange, Request, Address, Gmail, Phone, Post, History, Help, Guide, Manager, Notfind } from "../../assets/images";
+import {
+  Closer,
+  WishList,
+  Exchange,
+  Request,
+  Address,
+  Gmail,
+  Phone,
+  Post,
+  History,
+  Help,
+  Guide,
+  Manager,
+  Notfind
+} from '../../assets/images'
 
-import { MyWishList, Logo } from '../';
+import { MyWishList, Logo } from '../'
 
-import ENDPOINT from "../../ENDPOINT";
-import "./Navbar.css";
+import ENDPOINT from '../../ENDPOINT'
+import './Navbar.css'
 
 const Navbar = () => {
-  const { currentUser, logout, setErr } = useContext(UserContext);
-  const { filterPost, setIsLoaded, setIsFilter } = useContext(PostContext);
-  const { exchanges, updateExchange, isLoaded } = useContext(ExchangeContext);
+  const { currentUser, logout, setErr } = useContext(UserContext)
+  const { filterPost, setIsLoaded, setIsFilter } = useContext(PostContext)
+  const { exchanges, updateExchange, isLoaded } = useContext(ExchangeContext)
 
-  const {
-    isShowNavbar,
-    handleShowNavbar,
-    handleShowWishlist,
-    handleShowLayerWishlist
-  } = useContext(EffectContext);
+  const { isShowNavbar, handleShowNavbar, handleShowWishlist, handleShowLayerWishlist } =
+    useContext(EffectContext)
 
   const exchangesListOfUser = exchanges.filter((item) => {
     if (currentUser) {
-      return item.viewer === currentUser.username && item.status === "WAITING";
-    } else return false;
-  });
+      return item.viewer === currentUser.username && item.status === 'WAITING'
+    } else return false
+  })
 
   const exchangeSent = exchanges.filter((item) => {
     if (currentUser) {
-      return item.sender === currentUser.username;
-    } else return false;
-  });
+      return item.sender === currentUser.username
+    } else return false
+  })
 
-  const unreadExchanges = exchangesListOfUser.filter((item) => !item.isRead);
+  const unreadExchanges = exchangesListOfUser.filter((item) => !item.isRead)
 
   const filterType = (type) => {
-    if (type !== "all") {
-      setIsFilter(true);
-    } else setIsFilter(false);
+    if (type !== 'all') {
+      setIsFilter(true)
+    } else setIsFilter(false)
 
-    setIsLoaded(false);
+    setIsLoaded(false)
     axios
       .get(`${ENDPOINT}posts/${type}`)
       .then((res) => {
-        filterPost(res.data.postsFiltered);
-        setIsLoaded(true);
+        filterPost(res.data.postsFiltered)
+        setIsLoaded(true)
       })
-      .catch((err) => setErr(err.response.data));
-  };
+      .catch((err) => setErr(err.response.data))
+  }
 
   const onClick = () => {
     axios
@@ -64,15 +74,15 @@ const Navbar = () => {
         viewer: currentUser.username
       })
       .then((res) => {
-        updateExchange(res.data.exchanges);
+        updateExchange(res.data.exchanges)
       })
-      .catch((err) => setErr(err.response.data));
-  };
+      .catch((err) => setErr(err.response.data))
+  }
 
   return (
     <div
       className={classNames({
-        "navbar-site": true,
+        'navbar-site': true,
         show: isShowNavbar
       })}
     >
@@ -82,7 +92,7 @@ const Navbar = () => {
           <div className="d-flex">
             <li className="signin" onClick={() => handleShowNavbar()}>
               <Link to="/login">
-                Đăng nhập{" "}
+                Đăng nhập{' '}
                 <span>
                   <i className="far fa-user" />
                 </span>
@@ -90,7 +100,7 @@ const Navbar = () => {
             </li>
             <li className="signup" onClick={() => handleShowNavbar()}>
               <Link to="/signup">
-                Đăng kí{" "}
+                Đăng kí{' '}
                 <span>
                   <i className="fas fa-map-marker-alt" />
                 </span>
@@ -100,22 +110,19 @@ const Navbar = () => {
         )}
         {currentUser && (
           <div className="d-flex">
-            <Link
-              onClick={() => handleShowNavbar()}
-              to={`/profile/${currentUser._id}`}
-            >
+            <Link onClick={() => handleShowNavbar()} to={`/profile/${currentUser._id}`}>
               <img src={currentUser.avatar} alt="" />
             </Link>
             <li
               className="logout"
               onClick={() => {
-                handleShowNavbar();
-                userLogout();
-                logout();
+                handleShowNavbar()
+                userLogout()
+                logout()
               }}
             >
               <Link to="/">
-                Đăng xuất{" "}
+                Đăng xuất{' '}
                 <span>
                   <i className="fas fa-sign-out-alt" />
                 </span>
@@ -137,49 +144,51 @@ const Navbar = () => {
       )}
       {currentUser && (
         <div className="navbar-body">
-          {currentUser.isAdmin === true && <li
-            className="navbar-body-title admin"
-            onClick={() => {
-              handleShowNavbar();
-            }}
-          >
-            <Link to="/manager-transactions">
-              <span>
-                <Manager />
-              </span>
-              Quản lý
-            </Link>
-          </li>}
+          {currentUser.isAdmin === true && (
+            <li
+              className="navbar-body-title admin"
+              onClick={() => {
+                handleShowNavbar()
+              }}
+            >
+              <Link to="/manager-transactions">
+                <span>
+                  <Manager />
+                </span>
+                Quản lý
+              </Link>
+            </li>
+          )}
           <li className="navbar-body-title">Loại hàng hóa</li>
           <div className="navbar-body-link" onClick={() => handleShowNavbar()}>
-            <Link to="/" onClick={() => filterType("all")}>
+            <Link to="/" onClick={() => filterType('all')}>
               Tất cả
             </Link>
-            <Link to="/" onClick={() => filterType("skins")}>
+            <Link to="/" onClick={() => filterType('skins')}>
               Trang phục
             </Link>
-            <Link to="/" onClick={() => filterType("apparatus")}>
+            <Link to="/" onClick={() => filterType('apparatus')}>
               Đồ trang trí
             </Link>
-            <Link to="/" onClick={() => filterType("machines")}>
+            <Link to="/" onClick={() => filterType('machines')}>
               Máy móc - Đồ điện tử
             </Link>
-            <Link to="/" onClick={() => filterType("learningTools")}>
+            <Link to="/" onClick={() => filterType('learningTools')}>
               Học tập
             </Link>
-            <Link to="/" onClick={() => filterType("travels")}>
+            <Link to="/" onClick={() => filterType('travels')}>
               Du lịch - Phượt
             </Link>
-            <Link to="/" onClick={() => filterType("other")}>
+            <Link to="/" onClick={() => filterType('other')}>
               Khác
             </Link>
           </div>
           <li
             className="navbar-body-title"
             onClick={() => {
-              handleShowLayerWishlist();
-              handleShowNavbar();
-              handleShowWishlist(true);
+              handleShowLayerWishlist()
+              handleShowNavbar()
+              handleShowWishlist(true)
             }}
           >
             <a href>
@@ -192,8 +201,8 @@ const Navbar = () => {
           <li
             className="navbar-body-title"
             onClick={() => {
-              handleShowNavbar();
-              onClick();
+              handleShowNavbar()
+              onClick()
             }}
           >
             <Link to="/exchange-proposal-list">
@@ -204,14 +213,10 @@ const Navbar = () => {
             </Link>
             {!isLoaded && <span className="badge badge-light ml-1">loading</span>}
             {unreadExchanges.length === 0 && isLoaded && (
-              <span className="badge badge-light ml-1">
-                {exchangesListOfUser.length}
-              </span>
+              <span className="badge badge-light ml-1">{exchangesListOfUser.length}</span>
             )}
             {unreadExchanges.length > 0 && (
-              <span className="badge badge-danger ml-1">
-                {exchangesListOfUser.length}
-              </span>
+              <span className="badge badge-danger ml-1">{exchangesListOfUser.length}</span>
             )}
           </li>
           <li className="navbar-body-title" onClick={() => handleShowNavbar()}>
@@ -250,14 +255,6 @@ const Navbar = () => {
               Trợ giúp
             </Link>
           </li>
-          <li className="navbar-body-title" onClick={() => handleShowNavbar()}>
-            <Link to="/guide">
-              <span>
-                <Guide />
-              </span>
-              Hướng dẫn
-            </Link>
-          </li>
         </div>
       )}
       <div className="navbar-footer">
@@ -283,7 +280,7 @@ const Navbar = () => {
         <Logo />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

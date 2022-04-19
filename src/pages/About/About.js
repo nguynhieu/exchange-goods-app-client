@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
-import "./About.css";
-import { About } from "../../assets/images";
+import './About.css'
+import { About } from '../../assets/images'
 
 export default function () {
   return (
@@ -10,34 +10,29 @@ export default function () {
         <h3>ABOUT REI</h3>
         <img src={About} alt="" />
         <div className="about-article">
-          An About Us page helps your company make a good first impression, and
-          is critical for building customer trust and loyalty. An About Us page
-          should make sure to cover basic information about the store and its
-          founders, explain the company's purpose and how it differs from the
-          competition, and encourage discussion and interaction. Here are some
-          free templates, samples, and example About Us pages to help your
-          ecommerce store stand out from the crowd.
+          Hiện nay, nhu cầu đi du lịch cùng với gia đình, bạn bè và người thân đang ngày càng tăng
+          cao. Những website đặt tour du lịch có vai trò quan trọng giúp người dùng tìm kiếm thông
+          tin và đặt được một tour du lịch chất lượng và giá cả phải chăng nhất. Bạn đang lên kế
+          hoạch về một chuyến du lịch nhưng lại không biết nên đặt tour ở đâu? Để có thể tìm kiếm
+          được những website online đặt tour du lịch không phải là dễ dàng gì.
         </div>
         <div className="about-article">
-          When it comes to personalizing your online store, nothing is more
-          effective than an About Us page. This is a quick summary of your
-          company's history and purpose, and should provide a clear overview of
-          the company's brand story. A great About Us page can help tell your
-          brand story, establish customer loyalty, and turn your bland ecommerce
-          store into an well-loved brand icon. Most importantly, it will give
-          your customers a reason to shop from your brand.
+          Rei là một đơn vị hoạt động kinh doanh trong lĩnh vực truyền thông và du lịch tại Việt
+          Nam. Kể từ khi thành lập tới giờ, công ty Rei đã tạo cho mình những bước tiến vượt bậc.
+          Đội ngũ nhân viên của Rei không chỉ giỏi mà còn đam mê, nhiệt tình được đào tạo trong nước
+          và ngoài nước. Bên cạnh đó, Rei có nhiều hướng dẫn viên có nhiều năm kinh nghiệm trong
+          lĩnh vực du lịch.Ngoài các dịch vụ như đặt visa, đặt vé máy bay, thuê xe du lịch, đặt nhà
+          hàng, khách sạn được công ty thực hiện một cách chuyên nghiệp, đảm bảo luôn đặt lợi ích
+          của khách hàng lên đầu chắc chắn sẽ không khiến bạn phải thất vọng.
         </div>
         <div className="about-article">
-          In this post, we'll give you{" "}
-          <strong>
-            three different ways to create a professional about us page{" "}
-          </strong>
-          for your online store, blog, or other website - use our about us page
-          generator, use the fill-in-the-blank about us template below, or
-          create your own custom page using the about us examples within this
-          article.
+          <strong>Website Rei nổi tiếng với những cuộc thi thú vị</strong> mang đến cho giới trẻ có
+          nhiều cơ hội trải ngiệm và khám phá nhiều vùng đất mới trên thế giới. Một số cuộc thi hiện
+          nay đang được nhiều người săn đón phải kể đến “chương trình vào hạ tỏa nắng yêu thương với
+          giải thưởng như tặng 1000 vé trại hè, 5000 quà tặng gia đình và ưu đãi dành cho mỗi tour
+          lên đến 10 triệu đồng.
         </div>
       </div>
     </div>
-  );
+  )
 }

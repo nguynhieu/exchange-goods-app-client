@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react'
 
-import { PostContext } from "../../contexts/PostContext";
+import { PostContext } from '../../contexts/PostContext'
 
-import { Post, SideBar, Loading } from "../../components";
-import { Notfind } from "../../assets/images";
+import { Post, SideBar, Loading } from '../../components'
+import { Notfind } from '../../assets/images'
 
-import "./Home.css";
+import './Home.css'
 
 const Home = () => {
-  const { posts, isLoaded } = useContext(PostContext);
+  const { posts, isLoaded } = useContext(PostContext)
 
   if (!isLoaded) {
     return (
@@ -22,7 +22,7 @@ const Home = () => {
           <SideBar />
         </div>
       </div>
-    );
+    )
   }
 
   return (
@@ -35,13 +35,11 @@ const Home = () => {
               <img src={Notfind} alt="" />
             </div>
           )}
-          {posts.length > 0 &&
-            posts.map((post, index) => <Post key={index} post={post} />)}
+          {posts.length > 0 && posts.map((post, index) => <Post key={index} post={post} />)}
         </div>
-        <SideBar />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

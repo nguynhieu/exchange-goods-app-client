@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-import "./NavHeader.css";
+import './NavHeader.css'
 
 const NavHeader = () => {
   return (
@@ -10,13 +10,12 @@ const NavHeader = () => {
         <nav>
           <Link to="/about">REI App</Link>
           <Link to="/event">Sự kiện</Link>
-          <Link to="/gift">Quà tặng</Link>
+          <Link to="/tours">Du lịch</Link>
           <Link to="/help">Giúp đỡ</Link>
-          <Link to="/guide">Hướng dẫn</Link>
         </nav>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default NavHeader;
+export default NavHeader

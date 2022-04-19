@@ -1,4 +1,4 @@
-import About from './about.jpg';
+import About from './about.jpeg';
 import { ReactComponent as Address } from './address.svg';
 import { ReactComponent as Administrator } from './administrator.svg';
 import AvatarDefault from './avatar-default.png';

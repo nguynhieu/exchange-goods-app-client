@@ -1,51 +1,51 @@
-import React, { useContext, useState, useRef, useEffect } from "react";
-import classNames from "classnames";
-import { Tooltip, Modal, Select, Input } from "antd";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import React, { useContext, useState, useRef, useEffect } from 'react'
+import classNames from 'classnames'
+import { Tooltip, Modal, Select, Input } from 'antd'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 
-import { Heart, Exchange, Comment, Love, Send } from "../../assets/images";
+import { Heart, Exchange, Comment, Love, Send } from '../../assets/images'
 
-import { EffectContext } from "../../contexts/EffectApp";
-import { PostContext } from "../../contexts/PostContext";
-import { UserContext } from "../../contexts/UserContext";
-import { NotificationContext } from "../../contexts/Notification";
-import { ExchangeContext } from "../../contexts/ExchangeContext";
+import { EffectContext } from '../../contexts/EffectApp'
+import { PostContext } from '../../contexts/PostContext'
+import { UserContext } from '../../contexts/UserContext'
+import { NotificationContext } from '../../contexts/Notification'
+import { ExchangeContext } from '../../contexts/ExchangeContext'
 
-import { socket } from "../../services/socket";
+import { socket } from '../../services/socket'
 
-import ShowTime from "../ShowTime/ShowTime";
-import ENDPOINT from "../../ENDPOINT";
+import ShowTime from '../ShowTime/ShowTime'
+import ENDPOINT from '../../ENDPOINT'
 
-import "./Post.css";
-const { Option } = Select;
+import './Post.css'
+const { Option } = Select
 
 const Post = (props) => {
-  const { post } = props;
-  const { handleShowLayerWhite } = useContext(EffectContext);
-  const { addSwiperData, setNewPosts, allPost } = useContext(PostContext);
-  const { currentUser, setErr } = useContext(UserContext);
-  const { setNewNotification } = useContext(NotificationContext);
-  const { setExchangeList } = useContext(ExchangeContext);
+  const { post } = props
+  const { handleShowLayerWhite } = useContext(EffectContext)
+  const { addSwiperData, setNewPosts, allPost } = useContext(PostContext)
+  const { currentUser, setErr } = useContext(UserContext)
+  const { setNewNotification } = useContext(NotificationContext)
+  const { setExchangeList } = useContext(ExchangeContext)
 
-  const [liking, setLiking] = useState(false);
-  const [content, setContent] = useState("");
-  const [isShowComments, setIsShowComments] = useState(false);
-  const [visible, setVisible] = useState(false);
-  const [confirmLoading, setConfirmLoading] = useState(false);
-  const [postOfCurrentUser, setPostOfCurrentUser] = useState([]);
-  const [postId, setPostId] = useState(null);
-  const [address, setAddress] = useState("");
+  const [liking, setLiking] = useState(false)
+  const [content, setContent] = useState('')
+  const [isShowComments, setIsShowComments] = useState(false)
+  const [visible, setVisible] = useState(false)
+  const [confirmLoading, setConfirmLoading] = useState(false)
+  const [postOfCurrentUser, setPostOfCurrentUser] = useState([])
+  const [postId, setPostId] = useState(null)
+  const [address, setAddress] = useState('')
 
-  const textInput = useRef(null);
+  const textInput = useRef(null)
 
   useEffect(() => {
-    const posts = allPost.filter((post) => post.userId === currentUser._id);
-    setPostOfCurrentUser(posts);
-  }, [allPost, currentUser]);
+    const posts = allPost.filter((post) => post.userId === currentUser._id)
+    setPostOfCurrentUser(posts)
+  }, [allPost, currentUser])
 
   const handleOk = () => {
-    setConfirmLoading(true);
+    setConfirmLoading(true)
     axios
       .post(`${ENDPOINT}exchanges/request-exchange`, {
         sender: currentUser.username,
@@ -58,49 +58,47 @@ const Post = (props) => {
         time: new Date()
       })
       .then((res) => {
-        socket.emit("user-request-exchange", res.data);
-        setExchangeList(res.data);
-        setPostId(null);
-        setAddress("");
-        setVisible(false);
-        setConfirmLoading(false);
-        console.log(res.data);
+        socket.emit('user-request-exchange', res.data)
+        setExchangeList(res.data)
+        setPostId(null)
+        setAddress('')
+        setVisible(false)
+        setConfirmLoading(false)
+        console.log(res.data)
       })
-      .catch((err) => setErr(err.response.data));
-  };
+      .catch((err) => setErr(err.response.data))
+  }
 
   const onChange = (value) => {
-    setPostId(value);
-  };
+    setPostId(value)
+  }
 
   const handleCancel = () => {
-    setVisible(false);
-  };
+    setVisible(false)
+  }
 
   const focusInput = () => {
-    textInput.current.focus();
-  };
+    textInput.current.focus()
+  }
 
   const handleLike = (sender, viewer, postId, post) => {
     setLiking(true)
-    let type;
+    let type
 
-    const indexPost = allPost.findIndex((post) => post.postId === postId);
-    const likes = post.likes;
+    const indexPost = allPost.findIndex((post) => post.postId === postId)
+    const likes = post.likes
 
     if (post.likes.includes(sender)) {
-      type = "unlike";
-      likes.splice(likes.indexOf(sender), 1);
+      type = 'unlike'
+      likes.splice(likes.indexOf(sender), 1)
       const newPost = { ...post, likes }
       setNewPosts(newPost, indexPost)
-
     } else {
-      type = "like";
-      likes.splice(likes.indexOf(sender), 0, sender);
+      type = 'like'
+      likes.splice(likes.indexOf(sender), 0, sender)
       const newPost = { ...post, likes }
       setNewPosts(newPost, indexPost)
-
-    };
+    }
 
     axios
       .post(`${ENDPOINT}posts/like`, {
@@ -111,8 +109,8 @@ const Post = (props) => {
       })
       .then((res) => {
         setLiking(false)
-        setNewNotification(res.data.newNotifications);
-        socket.emit("user-like", {
+        setNewNotification(res.data.newNotifications)
+        socket.emit('user-like', {
           post: res.data.newPost,
           index: res.data.indexPost,
           newNotifications: res.data.newNotifications,
@@ -122,10 +120,10 @@ const Post = (props) => {
           time: new Date(),
           isRead: false,
           type
-        });
+        })
       })
-      .catch((err) => setErr(err.response.data));
-  };
+      .catch((err) => setErr(err.response.data))
+  }
 
   const handleComment = (sender, avatar, viewer, postId, content) => {
     axios
@@ -136,11 +134,11 @@ const Post = (props) => {
         postId,
         content,
         time: new Date(),
-        type: "comment"
+        type: 'comment'
       })
       .then((res) => {
-        setNewPosts(res.data.newPost, res.data.indexPost);
-        socket.emit("user-comment", {
+        setNewPosts(res.data.newPost, res.data.indexPost)
+        socket.emit('user-comment', {
           post: res.data.newPost,
           index: res.data.indexPost,
           newNotifications: res.data.newNotifications,
@@ -149,11 +147,11 @@ const Post = (props) => {
           postId,
           time: new Date(),
           isRead: false,
-          type: "comment"
-        });
+          type: 'comment'
+        })
       })
-      .catch((err) => setErr(err.response.data));
-  };
+      .catch((err) => setErr(err.response.data))
+  }
 
   return (
     <div className="post">
@@ -182,9 +180,7 @@ const Post = (props) => {
             }
           >
             {postOfCurrentUser.length === 0 && (
-              <p>
-                Bạn chưa có bài viết nào, đăng bài trước để thực hiện trao đổi
-              </p>
+              <p>Bạn chưa có bài viết nào, đăng bài trước để thực hiện trao đổi</p>
             )}
             {postOfCurrentUser.length > 0 &&
               postOfCurrentUser.map((post, index) => (
@@ -199,8 +195,8 @@ const Post = (props) => {
             placeholder="Địa chỉ của bạn"
           />
           <p className="modal-exchange-noti">
-            Nếu người kia đồng ý trao đổi, phí mà bạn sẽ đóng khi nhận được hàng
-            50.000 VNĐ (chưa tính ship)
+            Nếu người kia đồng ý trao đổi, phí mà bạn sẽ đóng khi nhận được hàng 50.000 VNĐ (chưa
+            tính ship)
           </p>
         </Modal>
       </div>
@@ -218,35 +214,31 @@ const Post = (props) => {
         </div>
       </div>
       <div className="post-body">
-        <div className="post-id">Post ID: {post.postId}</div>
-        <div className="post-type">Type: #{post.typeGoods}</div>
+        {/* <div className="post-id">Post ID: {post.postId}</div> */}
+        <div className="post-type">Địa điểm: {post.address}</div>
         <div className="post-body-caption">{post.caption}</div>
         {post.images.length > 0 && (
           <div
             onClick={() => {
               if (post.images.length) {
-                handleShowLayerWhite();
-                addSwiperData(post.images);
+                handleShowLayerWhite()
+                addSwiperData(post.images)
               }
             }}
             className={classNames({
-              "post-body-img": true,
-              "multiple-img": post.images.length > 1
+              'post-body-img': true,
+              'multiple-img': post.images.length > 1
             })}
           >
             {/* <ImgSlide urls={post.images} /> */}
             {post.images.length > 1 &&
-              post.images.map((src, index) => (
-                <img src={src} key={index} alt="" />
-              ))}
+              post.images.map((src, index) => <img src={src} key={index} alt="" />)}
             {post.images.length === 1 &&
               post.images.map((src, index) => (
                 <img src={src} key={index} alt="" className="post-single-img" />
               ))}
             {post.images.length - 2 > 0 && (
-              <div className="multiple-img-layer">
-                +{post.images.length - 2}
-              </div>
+              <div className="multiple-img-layer">+{post.images.length - 2}</div>
             )}
           </div>
         )}
@@ -254,40 +246,31 @@ const Post = (props) => {
       <div className="post-footer">
         <div className="post-reaction">
           {!post.likes.includes(currentUser.username) && (
-            <Tooltip placement="right" title={"Yêu thích"}>
+            <Tooltip placement="right" title={'Yêu thích'}>
               <button
-                className={liking ? "disable-like": ""}
-                onClick={() =>
-                  handleLike(
-                    currentUser.username,
-                    post.username,
-                    post.postId,
-                    post
-                  )
-                }
+                className={liking ? 'disable-like' : ''}
+                onClick={() => handleLike(currentUser.username, post.username, post.postId, post)}
               >
                 <Heart />
               </button>
             </Tooltip>
           )}
           {post.likes.includes(currentUser.username) && (
-            <Tooltip placement="right" title={"Hủy yêu thích"}>
+            <Tooltip placement="right" title={'Hủy yêu thích'}>
               <button
-                className={liking ? "disable-like": ""}
-                onClick={() =>
-                  handleLike(currentUser.username, post.username, post.postId, post)
-                }
+                className={liking ? 'disable-like' : ''}
+                onClick={() => handleLike(currentUser.username, post.username, post.postId, post)}
               >
                 <Love />
               </button>
             </Tooltip>
           )}
-          <Tooltip placement="right" title={"Bình luận"}>
+          <Tooltip placement="right" title={'Bình luận'}>
             <button onClick={() => focusInput()}>
               <Comment />
             </button>
           </Tooltip>
-          {currentUser.username === post.username && (
+          {/* {currentUser.username === post.username && (
             <Tooltip placement="left">
               <button
                 className="post-exchange disable-color"
@@ -307,11 +290,11 @@ const Post = (props) => {
                 <Exchange />
               </button>
             </Tooltip>
-          )}
+          )} */}
         </div>
         {
           <div className="post-count">
-            <Tooltip placement="bottomLeft" title={post.likes.join(", ")}>
+            <Tooltip placement="bottomLeft" title={post.likes.join(', ')}>
               <div className="post-count-like">
                 <p>{post.likes.length} người thích bài viết này</p>
               </div>
@@ -338,24 +321,22 @@ const Post = (props) => {
                 </div>
               </div>
             ))}
-            <button onClick={() => setIsShowComments(false)}>
-              Ẩn bình luận
-            </button>
+            <button onClick={() => setIsShowComments(false)}>Ẩn bình luận</button>
           </div>
         )}
         {currentUser && (
           <form
             onSubmit={(e) => {
-              e.preventDefault();
+              e.preventDefault()
               handleComment(
                 currentUser.username,
                 currentUser.avatar,
                 post.username,
                 post.postId,
                 content
-              );
-              setIsShowComments(true);
-              setContent("");
+              )
+              setIsShowComments(true)
+              setContent('')
             }}
           >
             <div className="post-chat">
@@ -368,16 +349,16 @@ const Post = (props) => {
               />
               <button
                 onClick={(e) => {
-                  e.preventDefault();
+                  e.preventDefault()
                   handleComment(
                     currentUser.username,
                     currentUser.avatar,
                     post.username,
                     post.postId,
                     content
-                  );
-                  setIsShowComments(true);
-                  setContent("");
+                  )
+                  setIsShowComments(true)
+                  setContent('')
                 }}
                 className={classNames({
                   show: content.length > 0
@@ -390,7 +371,7 @@ const Post = (props) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Post;
+export default Post

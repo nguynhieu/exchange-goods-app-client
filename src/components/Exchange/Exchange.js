@@ -2,13 +2,12 @@ import React, { useState, useContext } from "react";
 import { Modal, Input } from "antd";
 
 import { socket } from "../../services/socket";
-import { adminApi } from '../../apis/adminApi';
+import { adminApi } from '../../apis';
 
 import { UserContext } from "../../contexts/UserContext";
 import { ExchangeContext } from "../../contexts/ExchangeContext";
 
 import { ShowTime } from "../index";
-import ENDPOINT from "../../ENDPOINT";
 import "./Exchange.css";
 
 export default function ({ exchange }) {
@@ -62,7 +61,7 @@ export default function ({ exchange }) {
         addressViewer: address
       });
       socket.emit("user-accept-exchange", { viewer, sender });
-      updateExchange(res.data.exchanges);
+      // updateExchange(res.data.exchanges);
       setVisibleAccept(false);
       setConfirmLoading(false);
       setNotifySuccess(true);

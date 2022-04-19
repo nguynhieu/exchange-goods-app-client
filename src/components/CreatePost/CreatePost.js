@@ -1,96 +1,98 @@
-import React, { useState, useContext } from "react";
-import classNames from "classnames";
-import { Upload, Select, Input } from "antd";
-import ImgCrop from "antd-img-crop";
-import PulseLoader from "react-spinners/PulseLoader";
+import React, { useState, useContext } from 'react'
+import classNames from 'classnames'
+import { Upload, Select, Input } from 'antd'
+import ImgCrop from 'antd-img-crop'
+import PulseLoader from 'react-spinners/PulseLoader'
 
-import { postApi } from '../../apis/postApi';
+import { postApi } from '../../apis'
 
-import ENDPOINT from "../../ENDPOINT";
-import { EffectContext } from "../../contexts/EffectApp";
-import { UserContext } from "../../contexts/UserContext";
-import { PostContext } from "../../contexts/PostContext";
-import { Closer } from "../../assets/images";
+import { EffectContext } from '../../contexts/EffectApp'
+import { UserContext } from '../../contexts/UserContext'
+import { PostContext } from '../../contexts/PostContext'
+import { Closer } from '../../assets/images'
 
-import "./CreatePost.css";
+import './CreatePost.css'
 
-const { TextArea } = Input;
-const { Option } = Select;
+const { TextArea } = Input
+// const { Option } = Select
 
 const CreatePost = () => {
-  const { currentUser, setErr } = useContext(UserContext);
-  const { isShowLayer, handleShowLayer } = useContext(EffectContext);
-  const { handlePost } = useContext(PostContext);
+  const { currentUser, setErr } = useContext(UserContext)
+  const { isShowLayer, handleShowLayer } = useContext(EffectContext)
+  const { handlePost } = useContext(PostContext)
 
-  const [content, setContent] = useState("");
-  const [typeGoods, setTypeGoods] = useState(null);
-  const [fileList, setFileList] = useState([]);
-  const [waitingPosted, setWaitingPosted] = useState(false);
-  const [address, setAddress] = useState("");
+  const [content, setContent] = useState('')
+  const [typeGoods, setTypeGoods] = useState('travels')
+  const [fileList, setFileList] = useState([])
+  const [waitingPosted, setWaitingPosted] = useState(false)
+  const [address, setAddress] = useState('')
 
   // custom request
   const onUpload = ({ file, onSuccess }) => {
-    const reader = new window.FileReader();
-    reader.readAsDataURL(file);
+    const reader = new window.FileReader()
+    reader.readAsDataURL(file)
     reader.onload = (...args) => {
       // const fileContents = reader.result;
-      onSuccess("done", file);
-    };
-  };
+      onSuccess('done', file)
+    }
+  }
 
-  const onChangeSelect = (value) => {
-    setTypeGoods(value);
-  };
+  // const onChangeSelect = (value) => {
+  //   setTypeGoods(value)
+  // }
 
   const onChange = ({ fileList: newFileList }) => {
-    setFileList(newFileList);
-  };
+    setFileList(newFileList)
+  }
 
   const onSubmit = (e) => {
-    e.preventDefault();
-    setWaitingPosted(true);
-    const data = new FormData();
-    const fileUrls = fileList.map((file) => file.thumbUrl);
-    data.append("caption", content);
-    data.append("type", typeGoods);
-    data.append("userId", currentUser._id);
-    data.append("avatar", currentUser.avatar);
-    data.append("username", currentUser.username);
-    data.append("time", new Date());
-    data.append("status", "WAITING");
-    data.append("address", address);
-    fileUrls.forEach((file) => data.append("files", file));
+    e.preventDefault()
+    setWaitingPosted(true)
+    const data = new FormData()
+    const fileUrls = fileList.map((file) => file.thumbUrl)
+    data.append('caption', content)
+    data.append('type', typeGoods)
+    data.append('userId', currentUser._id)
+    data.append('avatar', currentUser.avatar)
+    data.append('username', currentUser.username)
+    data.append('time', new Date())
+    data.append('status', 'WAITING')
+    data.append('address', address)
+    fileUrls.forEach((file) => data.append('files', file))
 
-    try {
-      const data = postApi.createPost(data);
-      handlePost(data.data.newPost);
-      setAddress("");
-      setWaitingPosted(false);
-      setContent("");
-      setFileList([]);
-      setTypeGoods(null);
-      handleShowLayer();
-    } catch(err) {
-        setErr(err.response.data);
-        setWaitingPosted(false);
-        handleShowLayer();
-      };
-  };
+    const createNewPost = async () => {
+      try {
+        const res = await postApi.createPost(data)
+        handlePost(res.data.newPost)
+        setAddress('')
+        setWaitingPosted(false)
+        setContent('')
+        setFileList([])
+        handleShowLayer()
+      } catch (err) {
+        setErr(err.response.data)
+        setWaitingPosted(false)
+        handleShowLayer()
+      }
+    }
+
+    createNewPost()
+  }
 
   const onPreview = async (file) => {
-    let src = file.url;
+    let src = file.url
     if (!src) {
       src = await new Promise((resolve) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file.originFileObj);
-        reader.onload = () => resolve(reader.result);
-      });
+        const reader = new FileReader()
+        reader.readAsDataURL(file.originFileObj)
+        reader.onload = () => resolve(reader.result)
+      })
     }
-    const image = new Image();
-    image.src = src;
-    const imgWindow = window.open(src);
-    imgWindow.document.write(image.outerHTML);
-  };
+    const image = new Image()
+    image.src = src
+    const imgWindow = window.open(src)
+    imgWindow.document.write(image.outerHTML)
+  }
 
   return (
     <div className="create-post">
@@ -111,17 +113,16 @@ const CreatePost = () => {
                 onChange={(e) => setContent(e.target.value)}
                 name="content"
                 value={content}
-                placeholder="Viết thêm thông tin..."
+                placeholder="Viết bài review..."
                 autoSize={{ minRows: 2, maxRows: 6 }}
               />
-              <Select
+              {/* <Select
                 showSearch
                 placeholder="Lựa chọn loại hàng"
                 optionFilterProp="children"
                 onChange={onChangeSelect}
                 filterOption={(input, option) =>
-                  option.children.toLowerCase().indexOf(input.toLowerCase()) >=
-                  0
+                  option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                 }
               >
                 <Option value="skins">Trang phục</Option>
@@ -130,8 +131,12 @@ const CreatePost = () => {
                 <Option value="learningTools">Học tập</Option>
                 <Option value="travels">Du lịch - Phượt</Option>
                 <Option value="other">Khác</Option>
-              </Select>
-              <Input value={address} placeholder="Địa chỉ của bạn" onChange={(e) => setAddress(e.target.value)}/>
+              </Select> */}
+              <Input
+                value={address}
+                placeholder="địa điểm"
+                onChange={(e) => setAddress(e.target.value)}
+              />
               <ImgCrop rotate>
                 <Upload
                   action=""
@@ -142,18 +147,18 @@ const CreatePost = () => {
                   onChange={onChange}
                   onPreview={onPreview}
                 >
-                  {fileList.length < 6 && "+ Upload"}
+                  {fileList.length < 6 && '+ Upload'}
                 </Upload>
               </ImgCrop>
             </div>
 
             <button
               className={classNames({
-                "post-btn": true,
+                'post-btn': true,
                 show: content.length > 0 && typeGoods && address
               })}
             >
-              {!waitingPosted && "Đăng bài"}
+              {!waitingPosted && 'Đăng bài'}
               {waitingPosted && <PulseLoader />}
             </button>
           </div>
@@ -163,7 +168,7 @@ const CreatePost = () => {
         +
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default CreatePost;
+export default CreatePost

@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react'
 
-import { postApi } from '../apis';
+import { postApi } from '../apis'
 
-export const PostContext = React.createContext();
+export const PostContext = React.createContext()
 
 export class PostProvider extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       swiperData: [],
@@ -14,98 +14,86 @@ export class PostProvider extends React.Component {
       allPost: [],
       posts: [],
       isFilter: false
-    };
+    }
 
-    this.setIsFilter = this.setIsFilter.bind(this);
-    this.setIsLoaded = this.setIsLoaded.bind(this);
-    this.filterPost = this.filterPost.bind(this);
-    this.setNewPosts = this.setNewPosts.bind(this);
-    this.handlePost = this.handlePost.bind(this);
-    this.addSwiperData = this.addSwiperData.bind(this);
-    this.setDefaultSwiperData = this.setDefaultSwiperData.bind(this);
+    this.setIsFilter = this.setIsFilter.bind(this)
+    this.setIsLoaded = this.setIsLoaded.bind(this)
+    this.filterPost = this.filterPost.bind(this)
+    this.setNewPosts = this.setNewPosts.bind(this)
+    this.handlePost = this.handlePost.bind(this)
+    this.addSwiperData = this.addSwiperData.bind(this)
+    this.setDefaultSwiperData = this.setDefaultSwiperData.bind(this)
   }
 
   setIsLoaded(boo) {
     this.setState({
       isLoaded: boo
-    });
+    })
   }
 
   setIsFilter(boo) {
     this.setState({
       isFilter: boo
-    });
+    })
   }
 
   filterPost(posts) {
     this.setState({
       posts: posts
-    });
+    })
   }
 
   setNewPosts(post, index) {
-    const { posts, isFilter } = this.state;
+    const { posts, isFilter } = this.state
     if (isFilter) {
-      const indexPost = posts.findIndex((item) => item.postId === post.postId);
+      const indexPost = posts.findIndex((item) => item.postId === post.postId)
       this.setState({
-        posts: [
-          ...posts.slice(0, indexPost),
-          post,
-          ...posts.slice(indexPost + 1)
-        ]
-      });
-      return;
+        posts: [...posts.slice(0, indexPost), post, ...posts.slice(indexPost + 1)]
+      })
+      return
     }
 
     this.setState({
       posts: [...posts.slice(0, index), post, ...posts.slice(index + 1)]
-    });
+    })
   }
 
   handlePost(newPost) {
     this.setState({
       posts: [newPost, ...this.state.posts]
-    });
+    })
   }
 
   addSwiperData(images) {
     this.setState({
       swiperData: images
-    });
+    })
   }
 
   setDefaultSwiperData() {
     this.setState({
       swiperData: []
-    });
+    })
   }
 
   componentDidMount() {
     const getData = async () => {
       try {
-        const data = await postApi.getPosts();
+        const data = await postApi.getPosts()
         this.setState({
           allPost: data.data,
           posts: data.data,
           isLoaded: true
-        });
+        })
       } catch (err) {
         console.log(err)
       }
     }
-    getData();
+    getData()
   }
 
   render() {
-    const {
-      posts,
-      isLoaded,
-      swiperData,
-      postUpdated,
-      index,
-      isFilter,
-      allPost
-    } = this.state;
+    const { posts, isLoaded, swiperData, postUpdated, index, isFilter, allPost } = this.state
 
     return (
       <PostContext.Provider
@@ -128,6 +116,6 @@ export class PostProvider extends React.Component {
       >
         {this.props.children}
       </PostContext.Provider>
-    );
+    )
   }
 }
