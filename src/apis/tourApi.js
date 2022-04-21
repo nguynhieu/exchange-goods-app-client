@@ -4,7 +4,7 @@ import { tourList } from './mockData'
 
 const tourApi = {
   getTours: () => {
-    // const url = 'api/tours'
+    // const url = '/tour'
     // return axiosClient.get(url)
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -12,8 +12,9 @@ const tourApi = {
       }, 250)
     })
   },
+
   getDetail: (id) => {
-    // const url = `api/tours/${id}/detail`
+    // const url = `tour/${id}/detail`
     // return axiosClient.get(url)
 
     return new Promise((resolve) => {
@@ -25,7 +26,7 @@ const tourApi = {
   },
 
   booking: (data) => {
-    // const url = 'api/tours/booking'
+    // const url = 'tour/booking'
     // return axiosClient.post(url, data)
     return new Promise((resolve) => {
       setTimeout(() => {

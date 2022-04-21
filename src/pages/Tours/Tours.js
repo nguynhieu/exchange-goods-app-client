@@ -40,7 +40,7 @@ export default function () {
                 <div className="tour__info">
                   <p>Lịch trình: {tour.schedule}</p>
                   <p>Khởi hành: {moment(tour.departureTime).format('DD/MM/YYYY')}</p>
-                  <p>Số chỗ còn nhận: {tour.availableSlots}</p>
+                  <p>Số chỗ còn nhận: {tour.availableSlot}</p>
                   <p className="tour__price">{tour.price.toLocaleString()} đ</p>
                 </div>
               </Card>

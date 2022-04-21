@@ -30,7 +30,7 @@
     "reactstrap": "8.5.1",
     "socket.io-client": "2.3.0",
     "sweetalert2": "9.15.3",
-    "swiper": "6.0.4",
+    "swiper": "6.8.4",
     "xmlhttprequest-ssl": "1.6.0"
   },
   "devDependencies": {

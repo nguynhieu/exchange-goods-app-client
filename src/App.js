@@ -37,7 +37,8 @@ import {
   About,
   PostToday,
   Tours,
-  TourDetail
+  TourDetail,
+  EventDetail
 } from './pages'
 
 import { PublicRoute, PrivateRoute } from './routes'
@@ -165,6 +166,7 @@ function App() {
             <PublicRoute exact path="/signup" component={Signup} />
             <PublicRoute path="/profile/:userId" component={ProfileUser} />
             <PublicRoute exact path="/event" component={Event} />
+            <PublicRoute exact path="/event/:eventId" component={EventDetail} />
             <PublicRoute exact path="/tours" component={Tours} />
             <PublicRoute exact path="/tours/:tourId" component={TourDetail} />
             <PublicRoute exact path="/about" component={About} />

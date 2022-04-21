@@ -42,12 +42,15 @@ export default function () {
     {
       title: 'Giá tiền',
       dataIndex: 'cost',
-      key: 'cost'
+      key: 'cost',
+      render: (cost) => (
+        <span>{cost.toLocaleString()} đ</span>
+      )
     },
     {
       title: 'Trạng thái',
-      key: 'status',
       dataIndex: 'status',
+      key: 'status',
       render: (status) => (
         <Tag color={status === 'pending' ? 'geekblue' : 'green'}>{status.toUpperCase()}</Tag>
       )

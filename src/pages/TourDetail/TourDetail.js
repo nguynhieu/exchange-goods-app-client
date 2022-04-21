@@ -31,6 +31,7 @@ export default function () {
         }
         setConfirmLoading(true)
         await tourApi.booking(data)
+        fetchTour()
         setSlot(1)
         setConfirmLoading(false)
         Swal.fire('Đặt tour thành công!', 'Bấm vào nút để hoàn tất', 'success')
@@ -51,13 +52,13 @@ export default function () {
     setSlot(value)
   }
 
+  const fetchTour = async () => {
+    const data = await tourApi.getDetail(tourId)
+
+    setTour(data)
+  }
+
   useEffect(() => {
-    const fetchTour = async () => {
-      const data = await tourApi.getDetail(tourId)
-
-      setTour(data)
-    }
-
     fetchTour()
   }, [])
 
@@ -106,7 +107,7 @@ export default function () {
                   </p>
                   <p>
                     <span className="font-bold tour-detail__key">Số chỗ còn</span>
-                    <span className="ml-2">{tour.availableSlots}</span>
+                    <span className="ml-2">{tour.availableSlot}</span>
                   </p>
                 </div>
                 <div className="tour-booking mt-3">
@@ -116,14 +117,14 @@ export default function () {
                       {tour.price.toLocaleString()} đ
                     </span>
                   </p>
-                  {tour.availableSlots === 0 && (
+                  {tour.availableSlot === 0 && (
                     <p className="text-center text-danger">Rất tiếc tour này đã hết chỗ</p>
                   )}
                   <Button
                     type="primary"
                     onClick={showModal}
                     className="w-100 main-btn"
-                    disabled={tour.availableSlots === 0}
+                    disabled={tour.availableSlot === 0}
                   >
                     ĐẶT TOUR
                   </Button>
@@ -168,7 +169,7 @@ export default function () {
               <p>
                 <span className="font-bold tour-detail__key">số chỗ </span>
                 <span className="ml-2">
-                  <InputNumber min={1} max={tour.availableSlots} value={slot} onChange={onChange} />
+                  <InputNumber min={1} max={tour.availableSlot} value={slot} onChange={onChange} />
                 </span>
               </p>
               <p>

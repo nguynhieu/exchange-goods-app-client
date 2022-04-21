@@ -1,5 +1,6 @@
 export { default as About } from './About/About'
 export { default as Event } from './Event/Event'
+export { default as EventDetail } from './EventDetail/EventDetail'
 export { default as ExchangeProposal } from './ExchangeProposal/ExchangeProposal'
 export { default as ExchangeProposalSent } from './ExchangeProposalSent/ExchangeProposalSent'
 export { default as Tours } from './Tours/Tours'

@@ -3,7 +3,7 @@ import { billList } from './mockData'
 
 const billApi = {
   getBills: () => {
-    // const url = 'api/bills'
+    // const url = 'bill'
     // return axiosClient.get(url)
     return new Promise((resolve) => {
       setTimeout(() => {
