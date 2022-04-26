@@ -1,7 +1,7 @@
 import { Button, InputNumber, Modal } from 'antd'
 import moment from 'moment'
 import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import tourApi from '../../apis/tourApi'
 import { UserContext } from '../../contexts/UserContext'
 import './TourDetail.css'
@@ -15,6 +15,8 @@ export default function () {
 
   const { tourId } = useParams()
   const { currentUser } = useContext(UserContext)
+
+  const history = useHistory()
 
   const showModal = () => {
     setIsModalVisible(true)
@@ -34,8 +36,11 @@ export default function () {
         fetchTour()
         setSlot(1)
         setConfirmLoading(false)
-        Swal.fire('Đặt tour thành công!', 'Bấm vào nút để hoàn tất', 'success')
         setIsModalVisible(false)
+        Swal.fire('Đặt tour thành công!', 'Bấm vào nút để hoàn tất', 'success').then(() => {
+          history.push('/tours')
+        })
+        // history.push('/tours')
       } catch (err) {
         throw err
       }
