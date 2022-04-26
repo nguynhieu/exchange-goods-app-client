@@ -8,13 +8,12 @@ export default function () {
   const [banner, setBanner] = useState({})
 
   const { eventId } = useParams()
-  console.log(eventId)
 
   useEffect(() => {
     const fetchBanner = async () => {
-      const data = await bannerApi.getDetail(eventId)
+      const { data } = await bannerApi.getDetail(eventId)
       console.log(data)
-      setBanner(data)
+      setBanner(data.data)
       try {
       } catch (err) {
         throw err
@@ -23,14 +22,14 @@ export default function () {
 
     fetchBanner()
   }, [])
-
+  console.log(banner)
   return (
     <div className="event-detail">
       <div className="container">
-        {banner && (
+        {banner._id && (
           <div>
             <h4 className="mb-3">{banner.title}</h4>
-            <img className="w-100" src={banner.image} />
+            <img className="w-100" src={banner.images[0]} />
             <h5 className="my-4">Thông tin về sự kiện</h5>
             <p>{banner.description}</p>
           </div>

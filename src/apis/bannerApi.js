@@ -1,28 +1,14 @@
 import axiosClient from './axiosClient'
 
-import { bannerList } from './mockData'
-
 const bannerApi = {
   getBanners: () => {
-    // const url = '/banner'
-    // return axiosClient.get(url)
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(bannerList)
-      }, 250)
-    })
+    const url = 'api/banner'
+    return axiosClient.get(url)
   },
 
   getDetail: (id) => {
-    // const url = `banner/${id}/detail`
-    // return axiosClient.get(url)
-
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const matchedBanner = bannerList.find((banner) => banner.id === id)
-        resolve(matchedBanner)
-      }, 250)
-    })
+    const url = `api/banner/${id}`
+    return axiosClient.get(url)
   }
 }
 

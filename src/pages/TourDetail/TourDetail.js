@@ -53,9 +53,9 @@ export default function () {
   }
 
   const fetchTour = async () => {
-    const data = await tourApi.getDetail(tourId)
+    const { data } = await tourApi.getDetail(tourId)
 
-    setTour(data)
+    setTour(data.data)
   }
 
   useEffect(() => {
@@ -65,12 +65,12 @@ export default function () {
   return (
     <div className="tour-detail">
       <div className="container">
-        {tour && tour.id && (
+        {tour && tour._id && (
           <>
             <h4>{tour.title}</h4>
             <div className="row">
-              <div className="col-8">
-                <img src={tour.image} className="w-100" />
+              <div className="col-7">
+                <img src={tour.images[0]} className="w-100" />
                 <h5 className="my-4">Điểm nhấn hành trình</h5>
                 <p>
                   <span className="tour-detail__key">Lịch trình</span>
@@ -86,12 +86,12 @@ export default function () {
                 </p>
                 <p className="text-justify">{tour.description}</p>
               </div>
-              <div className="col-4">
+              <div className="col-5">
                 <div className="tour-info">
                   <p className="tour-info__title">{tour.title}</p>
                   <p>
                     <span className="font-bold tour-detail__key">Mã tour</span>
-                    <span className="ml-2">{tour.id}</span>
+                    <span className="ml-2">{tour._id}</span>
                   </p>
                   <p>
                     <span className="font-bold tour-detail__key">Thời gian</span>
@@ -152,7 +152,7 @@ export default function () {
               <p className="tour-info__title">{tour.title}</p>
               <p>
                 <span className="font-bold tour-detail__key">Mã tour</span>
-                <span className="ml-2">{tour.id}</span>
+                <span className="ml-2">{tour._id}</span>
               </p>
               <p>
                 <span className="font-bold tour-detail__key">Thời gian </span>

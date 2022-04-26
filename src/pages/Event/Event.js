@@ -12,8 +12,8 @@ export default function () {
 
   useEffect(() => {
     const fetchBannerList = async () => {
-      const data = await bannerApi.getBanners()
-      setBanners(data)
+      const { data } = await bannerApi.getBanners()
+      setBanners(data.data)
       try {
       } catch (err) {
         throw err
@@ -46,10 +46,10 @@ export default function () {
                 <div
                   key={banner.id}
                   onClick={() => {
-                    history.push(`/event/${banner.id}`)
+                    history.push(`/event/${banner._id}`)
                   }}
                 >
-                  <img src={banner.image} className="banner__image w-100" />
+                  <img src={banner.images[0]} className="banner__image w-100" />
                 </div>
               ))}
           </Carousel>

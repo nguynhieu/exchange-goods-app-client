@@ -11,8 +11,9 @@ export default function () {
   useEffect(() => {
     const fetchBillList = async () => {
       try {
-        const data = await billApi.getBills()
-        setBillList(data)
+        const { data } = await billApi.getBills()
+        console.log(data.data)
+        setBillList(data.data)
       } catch (err) {
         throw err
       }
@@ -43,16 +44,16 @@ export default function () {
       title: 'Giá tiền',
       dataIndex: 'cost',
       key: 'cost',
-      render: (cost) => (
-        <span>{cost.toLocaleString()} đ</span>
-      )
+      render: (cost) => <span>{cost.toLocaleString()} đ</span>
     },
     {
       title: 'Trạng thái',
       dataIndex: 'status',
       key: 'status',
       render: (status) => (
-        <Tag color={status === 'pending' ? 'geekblue' : 'green'}>{status.toUpperCase()}</Tag>
+        <Tag color={status.toUpperCase() === 'UNPAID' ? 'geekblue' : 'green'}>
+          {status.toUpperCase()}
+        </Tag>
       )
     },
     {

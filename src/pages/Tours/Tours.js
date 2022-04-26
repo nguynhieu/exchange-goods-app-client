@@ -12,9 +12,9 @@ export default function () {
 
   useEffect(() => {
     const fetchTourList = async () => {
-      const data = await tourApi.getTours()
+      const { data } = await tourApi.getTours()
 
-      setTourList(data)
+      setTourList(data.data)
     }
 
     fetchTourList()
@@ -31,10 +31,10 @@ export default function () {
               className="tour"
               key={tour.id}
               onClick={() => {
-                history.push(`/tours/${tour.id}`)
+                history.push(`/tours/${tour._id}`)
               }}
             >
-              <Card hoverable style={{ width: '100%' }} cover={<img src={tour.image} />}>
+              <Card hoverable style={{ width: '100%' }} cover={<img src={tour.images[0]} />}>
                 <p className="tour__title">{tour.title}</p>
 
                 <div className="tour__info">
