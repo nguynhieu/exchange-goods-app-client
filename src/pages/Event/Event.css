@@ -6,3 +6,11 @@
 .banner__image {
   cursor: pointer;
 }
+
+.ant-carousel .slick-dots-bottom li button {
+  background-color: #393e46 !important;
+}
+
+.ant-carousel .slick-dots-bottom li.slick-active button {
+  background-color: #00adb5 !important;
+}
