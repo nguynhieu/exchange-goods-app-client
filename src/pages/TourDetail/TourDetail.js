@@ -26,7 +26,7 @@ export default function () {
     const booking = async () => {
       try {
         const data = {
-          userId: currentUser.id,
+          userId: currentUser._id,
           tourId,
           slot,
           cost: tour.price * slot
